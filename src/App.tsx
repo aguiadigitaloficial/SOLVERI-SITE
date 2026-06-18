@@ -35,8 +35,8 @@ import sombraImage from './assets/sombra.png';
 import logoFundoImage from './assets/logo fundo.png';
 import circulosHeroConsultImage from './assets/circulos hero consult.png';
 import sentadosImage from './assets/sentados.png';
-import bombeirosInicioImage from './assets/bombeiros inicio.png';
-import socorrendoImage from './assets/socorrendo.png';
+import novoCardResponseImage from './assets/novo card response.jpg';
+import novoCardAcademyImage from './assets/novo card academy.jpeg';
 import linhaVerdeImage from './assets/linha verde.png';
 import linhaPretaImage from './assets/linha preta.png';
 import thumbnail2Image from './assets/thumbnail 2.png';
@@ -59,7 +59,7 @@ import thumbnailResponseImage from './assets/thumbnail response.png';
 import sombraThumbnailResponseImage from './assets/sombra thumbnail response.png';
 import apagandoFogoImage from './assets/apagando fogo.png';
 import salaReuniaoImage from './assets/sala reuniao.png';
-import bombeirosImage from './assets/bombeiros.png';
+import novaImagemResponseImage from './assets/nova imagem.jpeg';
 import bombeiros2Image from './assets/bombeiros 2.png';
 import cadeirasSalaImage from './assets/cadeiras sala.png';
 import salaReuniao2Image from './assets/sala reuniao 2.png';
@@ -410,7 +410,7 @@ function Company() {
               Credenciamentos
             </span>
             <p className="mx-auto mt-3 max-w-[420px] font-body text-[15px] leading-6 text-[#C7CDC8]">
-              Profissionais credenciados por instituições de referência internacional
+              Profissionais credenciados por instituições e normas de referência internacional
             </p>
           </div>
 
@@ -694,7 +694,7 @@ const consultProcessCards = [
     bullets: [
       'PAE - Plano de Ação de Emergência',
       'PEI - Plano de Emergência Individual',
-      'PEVO - Plano de Evacuação',
+      'PEVO - Plano de Emergência para Vazamento de Óleo',
       'PAEBM - Plano de Ação de Emergência para Barragens de Mineração',
     ],
     cta: 'Solicitar proposta',
@@ -746,7 +746,7 @@ const consultProcessCards = [
       'Contingência operacional robusta',
       'Gestão de crises e comunicação estratégica',
       'Atendimento pleno a exigências legais',
-      'Metodologias internacionais (ICS/NIMS)',
+      'Metodologias internacionais (ICS/APELL)',
     ],
     cta: 'Solicitar proposta',
     imageSrc: escrevendoImage,
@@ -1144,7 +1144,7 @@ const responseDeliverablesCards = [
       'Resposta a ocorrências de diferentes perfis e complexidade, garantindo a integridade dos ativos e a continuidade operacional.',
     bullets: [
       'Resposta rápida e protocolos de contenção',
-      'Integração com planos de contingência',
+      'Integração com planos de emergência das empresas',
       'Proteção ambiental e de infraestrutura',
       'Adaptável a diferentes cenários críticos',
     ],
@@ -1181,7 +1181,7 @@ const responseDeliverablesCards = [
       'Aderência aos padrões de segurança industrial',
     ],
     cta: 'Solicitar proposta',
-    imageSrc: bombeirosImage,
+    imageSrc: novaImagemResponseImage,
     imageAlt: 'Equipe de resposta mobilizada em campo',
     reverse: false,
   },
@@ -1373,11 +1373,11 @@ function ResponseContactSection() {
           <div className="space-y-[11px] font-body text-[14px] text-[#E7EBE7]">
             <div className="flex items-center gap-3">
               <img src={telefoneImage} alt="" aria-hidden="true" className="h-4 w-4 object-contain" />
-              <span>(31) 97114-2878</span>
+              <span>+55 31 3850-3510</span>
             </div>
             <div className="flex items-center gap-3">
               <img src={emailImage} alt="" aria-hidden="true" className="h-4 w-4 object-contain" />
-              <span>contato@solverisolutions.com</span>
+              <span>contato@solverigroup.com</span>
             </div>
           </div>
         </div>
@@ -1482,7 +1482,7 @@ function AcademyOverviewSection() {
     'Desenvolvimento de academias corporativas para clientes',
     'Elaboração de matrizes de competência e trilhas de formação',
     'Aplicação de avaliações teóricas, práticas e simulados operacionais',
-    'Emissão de certificados, credenciais e registros de qualificação',
+    'Credenciadora de  profissionais de gerenciamento de  crises e emergências de acordo com as certificações e registros de  qualificação',
   ];
 
   const stats = [
@@ -1592,8 +1592,8 @@ const academyCourseCards = [
     description:
       'O Sistema de Comando de Incidentes (ICS) é uma ferramenta de gerenciamento padronizada para preencher as demandas de situações de emergência ou não emergenciais de qualquer tamanho. O uso do ICS permite que seus usuários adotem uma estrutura organizacional integrada para suprir as complexidades e demandas de incidentes únicos ou múltiplos, sem serem prejudicados por limites jurisdicionais. Metodologia padronizada para o gerenciamento de resposta a incidentes críticos, garantindo comando único e eficiência operacional sob pressão extrema.',
     bulletsLeft: ['ICS 100 / 200', 'ICS 400 / 402'],
-    bulletsRight: ['ICS 300 / 320', 'Planos de Ação'],
-    modalities: ['Presencial', 'Híbrido'],
+    bulletsRight: ['ICS 300 / 320', 'PAI – Plano de Ação do\nIncidente'],
+    modalities: ['Presencial', 'Híbrido', 'EAD'],
     cta: 'Solicitar informações',
     imageSrc: monitoresImage,
     imageAlt: 'Monitores com sistemas de comando',
@@ -1617,9 +1617,12 @@ const academyCourseCards = [
     title: 'Cursos Técnicos, Operacionais e Normas Regulamentadoras',
     description:
       'Treinamentos técnicos especializados com foco total na conformidade legal (NRs) e excelência operacional. Cobrimos desde a formação de brigadas de incêndio até resgates de alta complexidade em espaços confinados e altura. O foco é a capacitação prática rigorosa, utilizando simuladores e cenários reais para garantir que o profissional esteja apto a executar suas funções com o máximo de segurança e eficiência técnica exigida pelo mercado industrial moderno.',
-    bulletsLeft: ['NR-33 & NR-35', 'Brigada de Incêndio'],
+    bulletsLeft: [
+      'NR-01, NR-02,NR-03, NR-04, NR-05, NR-06, NR07, NR-08, NR-09, NR-10, NR-11, NR-12, NR-13, NR-14, NR-15, NR16, NR-17, NR-18, NR-19, NR-20, NR-21, NR-22, NR-23, NR-24, NR25, NR-26, NR-27, NR-28, NR-29, NR-30, NR-31, NR-32, NR-33, NR34, NR-35, NR-36, NR-37, NR-38.',
+      'Brigada de Incêndio',
+    ],
     bulletsRight: ['Resgate Vertical', 'Primeiros Socorros'],
-    modalities: ['Presencial'],
+    modalities: ['Presencial', 'EAD'],
     cta: 'Solicitar informações',
     imageSrc: mochilasImage,
     imageAlt: 'Equipe com mochilas de treinamento',
@@ -1627,10 +1630,10 @@ const academyCourseCards = [
   },
   {
     eyebrow: 'Excelência Operacional',
-    title: 'Gestão SHEQ / SSMA',
+    title: 'Gestão SHERQ / SSMA',
     description:
       'Desenvolvimento de uma cultura robusta de Segurança, Saúde, Meio Ambiente e Qualidade. Este curso preparar líderes e gestores para implementar sistemas de gestão integrados que não apenas cumpram normas, mas elevem o desempenho operacional. Abordamos a liderança servidora, ferramentas de auditoria comportamental e a gestão de KPIs de segurança, transformando o SSMA em um centro de custo em um pilar de valor estratégico para a organização.',
-    bulletsLeft: ['ISO 45001 & 14001', 'Gestão de Desempenho'],
+    bulletsLeft: ['ISO9001, ISO31000, ISO45001,  & 14001', 'Gestão de Desempenho'],
     bulletsRight: ['Liderança em SSMA', 'Cultura de Segurança'],
     modalities: ['EAD', 'Presencial'],
     cta: 'Solicitar informações',
@@ -1645,7 +1648,7 @@ const academyCourseCards = [
       'Um mergulho profundo nos mecanismos de verificação e planos de ação necessários para manter a integridade organizacional. Este treinamento foca no desenvolvimento de auditores internos capazes de identificar desvios sistêmicos e propor melhorias contínuas. Trabalhamos com frameworks de compliance para garantir a conformidade legal e o aumento gradual da maturidade operacional, assegurando que os processos internos sejam resilientes e auditáveis a qualquer momento.',
     bulletsLeft: ['Auditoria Interna', 'Planos de Ação (PDCA)'],
     bulletsRight: ['Compliance Legal', 'Maturidade de Processos'],
-    modalities: ['Híbrido'],
+    modalities: ['Híbrido', 'Presencial', 'EAD'],
     cta: 'Solicitar informações',
     imageSrc: graficosImage,
     imageAlt: 'Gráficos e análise corporativa',
@@ -1656,9 +1659,9 @@ const academyCourseCards = [
     title: 'Análise de Riscos e Preparação para Emergências',
     description:
       'Identificação proativa e mitigação de perigos operacionais. Este módulo ensina as metodologias de análise de risco mais avançadas (APR, HAZOP, What-If) e como transformá-las em planos de emergência eficazes. Focamos no desenvolvimento de cenários de crise e na organização de simulados que testam a real capacidade de resposta da equipe. A prevenção é tratada como um processo dinâmico de antecipação do erro, salvaguardando vidas e ativos críticos.',
-    bulletsLeft: ['APR & HAZOP', 'Planos de Contingência'],
+    bulletsLeft: ['APR, HAZOP e Bowtie', 'Planos de Emergência,\nContingência e Crise'],
     bulletsRight: ['Gestão de Mudanças', 'Simulados Práticos'],
-    modalities: ['EAD'],
+    modalities: ['EAD', 'Presencial'],
     cta: 'Solicitar informações',
     imageSrc: analiseImage,
     imageAlt: 'Análise de riscos em tela',
@@ -1671,7 +1674,7 @@ const academyCourseCards = [
       'Transformando falhas em oportunidades de aprendizado e crescimento. Ensinamos técnicas forenses e metodologias de análise de causa raiz (Fishbone, 5 Whys, Árvore de Falhas) para desvendar a cadeia de eventos de um incidente. O foco não é culpar, mas entender as defesas do sistema que falharam. Ao final, o aluno estará apto a redigir relatórios técnicos precisos e implementar barreiras robustas que evitam a recorrência de incidentes similares no futuro.',
     bulletsLeft: ['Causa Raiz', 'Lições Aprendidas'],
     bulletsRight: ['Fatores Humanos', 'Relatórios Técnicos'],
-    modalities: ['Híbrido'],
+    modalities: ['Híbrido', 'Presencial', 'EAD'],
     cta: 'Solicitar informações',
     imageSrc: droneImage,
     imageAlt: 'Drone em operação de monitoramento',
@@ -1710,7 +1713,7 @@ const academyCourseCards = [
       'O fator humano é o elo mais importante em qualquer sistema de segurança. Este curso foca nas "soft skills" necessárias para a gestão de crises: comunicação assertiva, tomada de decisão sob pressão, gestão de conflitos e inteligência emocional. Trabalhamos o conceito de accountability (responsabilização), inspirando profissionais a serem donos de seus processos e líderes natos, independentemente de seus cargos, criando uma rede de confiança técnica e comportamental.',
     bulletsLeft: ['Inteligência Emocional', 'Postura Profissional'],
     bulletsRight: ['Gestão de Crise', 'Accountability'],
-    modalities: ['Híbrido'],
+    modalities: ['Híbrido', 'Presencial', 'EAD'],
     cta: 'Solicitar informações',
     imageSrc: reuniaoMonitoresImage,
     imageAlt: 'Reunião com monitores e telas',
@@ -1922,61 +1925,61 @@ const segmentCards = [
     image: segmentoImage1,
     title: 'Mineração',
     description: 'Controle rigoroso de perigos e protocolos de segurança em minas subterrâneas.',
-    tags: ['Consult', 'Response'],
+    tags: ['Consulty', 'Response', 'Academy'],
   },
   {
     image: segmentoImage2,
     title: 'Óleo e Gás',
     description: 'Planos de emergência para exploração offshore e refinarias de alta complexidade.',
-    tags: ['Response', 'Academy'],
+    tags: ['Consulty', 'Response', 'Academy'],
   },
   {
     image: segmentoImage3,
     title: 'Química',
     description: 'Gestão de produtos perigosos e prevenção contra incidentes químicos industriais.',
-    tags: ['Consult', 'Response'],
+    tags: ['Consulty', 'Response', 'Academy'],
   },
   {
     image: segmentoImage4,
     title: 'Siderurgia',
     description: 'Segurança ocupacional e resposta em ambientes de alta temperatura e fundição.',
-    tags: ['Academy'],
+    tags: ['Consulty', 'Response', 'Academy'],
   },
   {
     image: segmentoImage5,
     title: 'Energia',
     description: 'Proteção de ativos críticos e gestão de crises em redes de distribuição.',
-    tags: ['Consult', 'Response'],
+    tags: ['Consulty', 'Response', 'Academy'],
   },
   {
     image: segmentoImage6,
     title: 'Logística',
     description: 'Segurança no transporte multimodal de cargas sensíveis e gestão portuária.',
-    tags: ['Consult', 'Response'],
+    tags: ['Consulty', 'Response', 'Academy'],
   },
   {
     image: segmentoImage7,
     title: 'Papel e Celulose',
     description: 'Compliance ambiental e prevenção de incêndios em grandes complexos industriais.',
-    tags: ['Consult', 'Academy'],
+    tags: ['Consulty', 'Response', 'Academy'],
   },
   {
     image: segmentoImage8,
     title: 'Ferrovias',
     description: 'Prontidão operacional e resposta a descarrilamentos e emergências em via férrea.',
-    tags: ['Response'],
+    tags: ['Consulty', 'Response', 'Academy'],
   },
   {
     image: segmentoImage9,
     title: 'Agronegócio',
     description: 'Continuidade de negócios e segurança em silos e plantas de processamento.',
-    tags: ['Consult', 'Academy'],
+    tags: ['Consulty', 'Response', 'Academy'],
   },
   {
     image: segmentoImage10,
     title: 'Órgãos Públicos',
     description: 'Consultoria em defesa civil e estruturação de centros de comando de crises.',
-    tags: ['Consult', 'Response', 'Academy'],
+    tags: ['Consulty', 'Response', 'Academy'],
   },
 ];
 
@@ -2074,7 +2077,7 @@ function ContactHero() {
 
 function ContactSection() {
   const contactItems = [
-    { label: 'Telefone', value: '+55 (31) 97114-2878', icon: Phone },
+    { label: 'Telefone', value: '+55 31 3850-3510', icon: Phone },
     { label: 'Email', value: 'contato@solverigroup.com', icon: Mail },
     { label: 'Endereço', value: 'Av. Alberto Lima, 3001 - sala 12 - João Monlevade - MG', icon: Building2 },
     { label: 'Site', value: 'www.solverigroup.com', icon: ArrowRight },
@@ -2263,13 +2266,13 @@ const serviceShowcaseCards = [
       'Profissionais credenciados para EORs',
     ],
     cta: 'Conheça a Solveri Response',
-    imageSrc: bombeirosInicioImage,
+    imageSrc: novoCardResponseImage,
     imageAlt: 'Equipe em operação de resposta',
     reverse: true,
   },
   {
     eyebrow: 'Academy',
-    title: 'Formação técnica, aplicação real',
+    title: 'Formação profissional, aplicação real',
     description:
       'Programas presenciais, EAD e híbridos em ICS/SCI, Normas Regulamentadoras, SSMA e gestão de emergências para equipes operacionais e lideranças.',
     bulletsLeft: [
@@ -2280,12 +2283,12 @@ const serviceShowcaseCards = [
     ],
     bulletsRight: [
       'OTE - Telecomunicações em Emergência',
-      'Gestão SHEQ / SSMA',
+      'Gestão SHERQ / SSMA',
       'Investigação de incidentes',
       'Parceria IRCA Global Brasil',
     ],
     cta: 'Conheça a Solveri Academy',
-    imageSrc: socorrendoImage,
+    imageSrc: novoCardAcademyImage,
     imageAlt: 'Equipe em treinamento técnico',
     reverse: false,
   },
@@ -2698,8 +2701,8 @@ function Footer() {
         <div>
           <h3 className="font-heading text-[12px] font-bold uppercase tracking-[2.4px] text-accent-bright">Contato</h3>
           <div className="mt-5 space-y-4 font-body text-[13px] leading-6 text-[#B1B7B2]">
-            <p className="flex gap-3"><Phone className="shrink-0 text-accent-bright" size={16} /> (31) 97114-2878</p>
-            <p className="flex gap-3"><Mail className="shrink-0 text-accent-bright" size={16} /> contato@solverisolutions.com</p>
+            <p className="flex gap-3"><Phone className="shrink-0 text-accent-bright" size={16} /> +55 31 3850-3510</p>
+            <p className="flex gap-3"><Mail className="shrink-0 text-accent-bright" size={16} /> contato@solverigroup.com</p>
             <p className="flex gap-3"><Building2 className="shrink-0 text-accent-bright" size={16} /> Av. Alberto Lima, 3001 - sala 12, João Monlevade - MG</p>
           </div>
         </div>
