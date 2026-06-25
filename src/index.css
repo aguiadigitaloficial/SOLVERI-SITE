@@ -29,6 +29,351 @@ html {
   scroll-behavior: smooth;
 }
 
+.route-page-enter {
+  animation: route-page-enter 260ms cubic-bezier(0.22, 1, 0.36, 1) both;
+}
+
+.portal-grid-pattern {
+  background-image:
+    radial-gradient(circle at 50% 48%, rgba(168, 230, 61, 0.11), transparent 29%),
+    linear-gradient(rgba(15, 32, 23, 0.025) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(15, 32, 23, 0.025) 1px, transparent 1px);
+  background-size:
+    auto,
+    36px 36px,
+    36px 36px;
+  mask-image: linear-gradient(to bottom, transparent, black 20%, black 82%, transparent);
+}
+
+.portal-intro {
+  animation: portal-intro-reveal 600ms cubic-bezier(0.22, 1, 0.36, 1) both;
+}
+
+.portal-radar::before {
+  position: absolute;
+  inset: 12%;
+  border-radius: 999px;
+  background: radial-gradient(circle, rgba(168, 230, 61, 0.08), transparent 67%);
+  content: '';
+  pointer-events: none;
+}
+
+.portal-radar {
+  width: min(100%, clamp(310px, calc(100svh - 280px), 760px));
+}
+
+.portal-ring-guide {
+  fill: none;
+  stroke: rgba(15, 32, 23, 0.18);
+  stroke-dasharray: 0.7 1.8;
+  stroke-width: 0.25;
+  vector-effect: non-scaling-stroke;
+}
+
+.portal-ring-guide--inner {
+  stroke: rgba(168, 230, 61, 0.24);
+}
+
+.portal-ring-sector {
+  cursor: pointer;
+  outline: none;
+}
+
+.portal-ring-sector-shape {
+  fill: #274833;
+  stroke: rgba(249, 249, 247, 0.84);
+  stroke-width: 0.7;
+  vector-effect: non-scaling-stroke;
+  transition: fill 180ms ease, stroke 180ms ease;
+}
+
+.portal-ring-sector-shape.is-alternate {
+  fill: #31583d;
+}
+
+.portal-ring-sector:hover .portal-ring-sector-shape,
+.portal-ring-sector:focus-visible .portal-ring-sector-shape {
+  fill: #d4ff00;
+  stroke: #83a916;
+}
+
+.portal-ring-sector-shape.is-active {
+  fill: #d4ff00;
+  stroke: #83a916;
+}
+
+.portal-ring-sector:focus-visible .portal-ring-sector-shape {
+  stroke: #0f2017;
+  stroke-width: 1.2;
+}
+
+.portal-ring-logo {
+  background: rgba(7, 28, 17, 0.42);
+  border: 1.5px solid rgba(255, 255, 255, 0.35);
+  transition: background-color 180ms ease, border-color 180ms ease;
+}
+
+.portal-ring-sector:hover .portal-ring-logo,
+.portal-ring-sector:focus-visible .portal-ring-logo,
+.portal-ring-logo.is-active {
+  background: rgba(15, 32, 23, 0.08);
+  border-color: rgba(15, 32, 23, 0.24);
+}
+
+.portal-center {
+  isolation: isolate;
+}
+
+.portal-center::before {
+  position: absolute;
+  inset: 7%;
+  z-index: -1;
+  border: 1px solid rgba(91, 139, 17, 0.18);
+  border-radius: inherit;
+  content: '';
+}
+
+.portal-center-content {
+  animation: portal-center-swap 180ms ease-out both;
+}
+
+.portal-hint {
+  animation: portal-intro-reveal 600ms 720ms cubic-bezier(0.22, 1, 0.36, 1) both;
+}
+
+@keyframes route-page-enter {
+  from {
+    opacity: 0;
+    transform: translate3d(0, 8px, 0);
+  }
+
+  to {
+    opacity: 1;
+    transform: translate3d(0, 0, 0);
+  }
+}
+
+@keyframes portal-intro-reveal {
+  from {
+    opacity: 0;
+    transform: translate3d(0, 12px, 0);
+  }
+
+  to {
+    opacity: 1;
+    transform: translate3d(0, 0, 0);
+  }
+}
+
+@keyframes portal-center-swap {
+  from {
+    opacity: 0;
+  }
+
+  to {
+    opacity: 1;
+  }
+}
+
+.client-marquee {
+  scrollbar-width: none;
+}
+
+.client-marquee::-webkit-scrollbar {
+  display: none;
+}
+
+.client-marquee-track {
+  display: flex;
+  width: max-content;
+  animation: client-marquee 40s linear infinite;
+  transform: translate3d(0, 0, 0);
+  will-change: transform;
+  backface-visibility: hidden;
+  contain: layout paint;
+}
+
+.client-marquee-group {
+  display: flex;
+  flex-shrink: 0;
+  align-items: center;
+  gap: 1rem;
+  padding-right: 1rem;
+}
+
+.client-logo-item {
+  transform: translate3d(0, 0, 0);
+  transition:
+    transform 280ms cubic-bezier(0.22, 1, 0.36, 1),
+    opacity 280ms ease;
+  will-change: transform;
+}
+
+.client-logo-item:hover {
+  transform: translate3d(0, -5px, 0) scale(1.025);
+}
+
+.client-marquee:has(.client-logo-item:hover) .client-logo-item:not(:hover) {
+  opacity: 0.72;
+}
+
+@keyframes client-marquee {
+  to {
+    transform: translate3d(-50%, 0, 0);
+  }
+}
+
+.brazil-map-state {
+  fill: #18201b;
+  stroke: rgba(239, 244, 240, 0.9);
+  stroke-width: 1.35;
+  stroke-linejoin: round;
+  vector-effect: non-scaling-stroke;
+  transition:
+    fill 220ms ease,
+    stroke 220ms ease,
+    filter 220ms ease;
+}
+
+.brazil-map-states {
+  animation: brazil-map-reveal 600ms ease-out both;
+}
+
+.brazil-map-state--present {
+  fill: #1d2a20;
+}
+
+.brazil-map-state-control:hover .brazil-map-state--present,
+.brazil-map-state-control:focus-visible .brazil-map-state--present,
+.brazil-map-state--present.is-active {
+  fill: #31451f;
+  stroke: #d7ff70;
+  filter: drop-shadow(0 0 8px rgba(183, 255, 33, 0.22));
+}
+
+.brazil-map-state-control:focus-visible .brazil-map-marker {
+  stroke: #ffffff;
+  stroke-width: 3;
+}
+
+.brazil-map-marker {
+  fill: #b7ff21;
+  stroke: #5e801e;
+  stroke-width: 3;
+  transform-box: fill-box;
+  transform-origin: center;
+  transition:
+    transform 220ms cubic-bezier(0.22, 1, 0.36, 1),
+    filter 220ms ease;
+}
+
+.brazil-map-marker-pulse {
+  fill: rgba(183, 255, 33, 0.18);
+  transform-box: fill-box;
+  transform-origin: center;
+  animation: brazil-map-pulse 2.8s ease-out infinite;
+}
+
+.brazil-map-state-control:hover .brazil-map-marker,
+.brazil-map-state-control:focus-visible .brazil-map-marker,
+.brazil-map-marker.is-active {
+  filter: drop-shadow(0 0 7px rgba(183, 255, 33, 0.75));
+  transform: scale(1.28);
+}
+
+.brazil-map-marker-pulse.is-active {
+  animation-duration: 1.4s;
+}
+
+@keyframes brazil-map-pulse {
+  0%,
+  36% {
+    opacity: 0.65;
+    transform: scale(0.68);
+  }
+
+  76%,
+  100% {
+    opacity: 0;
+    transform: scale(1.55);
+  }
+}
+
+@keyframes brazil-map-reveal {
+  from {
+    opacity: 0;
+  }
+
+  to {
+    opacity: 1;
+  }
+}
+
+@media (min-width: 640px) {
+  .client-marquee-group {
+    gap: 1.5rem;
+    padding-right: 1.5rem;
+  }
+}
+
+@media (min-width: 1024px) {
+  .client-marquee-track {
+    animation-duration: 50s;
+  }
+
+  .client-marquee-group {
+    gap: 2rem;
+    padding-right: 2rem;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .route-page-enter {
+    animation: none;
+  }
+
+  .portal-intro,
+  .portal-center-content,
+  .portal-hint {
+    animation: none;
+    opacity: 1;
+  }
+
+  .portal-ring-sector-shape,
+  .portal-ring-logo {
+    transition: none;
+  }
+
+  .client-marquee {
+    overflow-x: auto;
+  }
+
+  .client-marquee-track {
+    animation: none;
+    transform: none;
+  }
+
+  .client-marquee-group[aria-hidden='true'] {
+    display: none;
+  }
+
+  .brazil-map-marker-pulse {
+    animation: none;
+    opacity: 0.35;
+    transform: scale(1);
+  }
+
+  .brazil-map-state,
+  .brazil-map-marker {
+    transition: none;
+  }
+
+  .brazil-map-states {
+    animation: none;
+  }
+
+}
+
 /* Custom scrollbar to match the premium dark theme */
 ::-webkit-scrollbar {
   width: 8px;

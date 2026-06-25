@@ -25,14 +25,22 @@ npm.cmd run dev
 
 ## Rotas
 
-As areas do site sao acessadas por hash:
+As paginas do site usam URLs proprias:
 
-- `/#inicio`
-- `/#consult`
-- `/#response`
-- `/#academy`
-- `/#segmento`
-- `/#contato`
+- `/` - portal de entrada
+- `/inicio` - pagina institucional da Solveri Group
+- `/consult`
+- `/response`
+- `/academy`
+- `/segmentos`
+- `/contato`
+
+As secoes internas da pagina inicial continuam usando ancoras, por exemplo:
+
+- `/inicio#empresa`
+- `/inicio#servicos`
+
+Links antigos baseados em hash sao convertidos automaticamente para as novas rotas.
 
 ## Comandos
 
@@ -58,3 +66,7 @@ npm run build
 ```
 
 Os arquivos finais sao gerados em `dist/`.
+
+Como o projeto usa rotas no navegador, a hospedagem deve encaminhar acessos como
+`/inicio`, `/consult` e `/academy` para o arquivo `index.html`. A configuracao exata depende
+do provedor de hospedagem escolhido.
