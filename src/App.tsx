@@ -38,7 +38,7 @@ import mooveClientLogo from './assets/clients/moove.png';
 import petrobrasClientLogo from './assets/clients/petrobras.png';
 import vectorSaudeClientLogo from './assets/clients/vector-saude.png';
 import veracelClientLogo from './assets/clients/veracel.png';
-import paisagemImage from './assets/paisagem-optimized.jpg';
+import paisagemImage from './assets/paisagem.png';
 import ircaLogo from './assets/irca.png';
 import advancedLogo from './assets/advanced.png';
 import starImage from './assets/estrela.png';
@@ -338,24 +338,29 @@ const clients = [
 
 const faqs = [
   {
-    question: 'A Solveri atua apenas em emergencias?',
+    question: 'Como a Solveri pode ajudar minha empresa a estar realmente preparada para emergências?',
     answer:
-      'Nao. A atuacao cobre prevencao, preparacao, resposta e aprendizagem pos-evento, com consultoria, treinamentos e suporte operacional.',
+      'A Solveri atua de forma estratégica para transformar a preparação da sua empresa em um sistema sólido, organizado e eficiente de prevenção, resposta e continuidade. Desenvolvemos soluções sob medida em gestão de emergências, protocolos operacionais, estruturação de centrais, treinamentos especializados e fortalecimento da capacidade de resposta, reduzindo vulnerabilidades e elevando o nível de segurança, governança e confiabilidade do seu negócio.',
   },
   {
-    question: 'Os programas sao personalizados por segmento?',
+    question: 'Quais tipos de treinamentos a Solveri oferece?',
     answer:
-      'Sim. O desenho considera riscos, maturidade, requisitos legais, operacao, publico exposto e criticidade do negocio.',
+      'Oferecemos treinamentos corporativos e técnicos voltados para equipes operacionais, lideranças e estruturas de gestão de crise e emergência. Nossos programas incluem capacitação em resposta a emergências, sistemas de comando de incidentes, operação de centrais de atendimento, protocolos de telecomunicações em emergência, simulados, formações para bombeiros civis e programas customizados conforme a realidade e os riscos de cada organização. Tudo com foco prático, aplicabilidade real e alto padrão técnico.',
   },
   {
-    question: 'E possivel contratar treinamentos e simulados isolados?',
+    question: 'A Solveri desenvolve ou revisa planos e procedimentos de emergência?',
     answer:
-      'Sim. A Academy pode operar em projetos pontuais ou dentro de um programa continuo de cultura e prontidao.',
+      'Sim. A Solveri desenvolve, revisa e aperfeiçoa planos, protocolos e procedimentos com base nas necessidades operacionais e estratégicas de cada cliente. Atuamos na elaboração e atualização de planos de emergência, contingência, crise e resposta, sempre alinhando exigências legais, boas práticas do mercado e metodologias reconhecidas internacionalmente. O objetivo é garantir que sua organização tenha documentos realmente úteis, executáveis e aderentes à sua operação.',
   },
   {
-    question: 'A Solveri atende operacoes em diferentes estados?',
+    question: 'Vocês também apoiam a implantação de processos, centrais e rotinas operacionais?',
     answer:
-      'Sim. A estrutura foi pensada para presenca nacional, com combinacao de especialistas, parceiros e suporte remoto.',
+      'Sim. Mais do que entregar documentos e treinamentos, a Solveri apoia a implantação prática das soluções. Estruturamos processos, fluxos, protocolos, rotinas de atendimento e modelos operacionais para centrais e equipes de resposta, promovendo ganho real de organização, agilidade, padronização e segurança na tomada de decisão. Nosso compromisso é fazer com que a solução funcione na prática, e não apenas no papel.',
+  },
+  {
+    question: 'Como funciona a contratação dos serviços da Solveri?',
+    answer:
+      'A contratação é simples, consultiva e personalizada. Primeiro entendemos o cenário, os riscos, as necessidades e os objetivos da sua organização. A partir disso, estruturamos uma proposta sob medida, que pode envolver consultoria, treinamentos, desenvolvimento de protocolos, simulados, credenciamento de equipes ou apoio operacional. Assim, sua empresa recebe exatamente a solução de que precisa, com foco em resultado, eficiência e valor agregado.',
   },
 ];
 
@@ -761,8 +766,8 @@ function Hero() {
             Gestão integrada de riscos corporativos
           </div>
 
-          <h1 className="mt-7 max-w-[650px] font-heading text-[32px] font-bold leading-[1.08] text-white sm:text-[42px] lg:mt-12 lg:max-w-[860px] lg:text-[46px] xl:max-w-[900px] xl:text-[48px]">
-            <span className="lg:whitespace-nowrap">Cuidando dos maiores patrimônios empresariais:</span>
+          <h1 className="mt-7 max-w-[650px] font-heading text-[32px] font-bold leading-[1.08] text-white sm:text-[42px] lg:mt-12 lg:max-w-[590px] lg:text-[46px] xl:text-[48px]">
+            <span>Cuidando dos maiores patrimônios empresariais:</span>
             <span className="mt-1 block text-accent lg:whitespace-nowrap">Pessoas, Planeta e Reputação</span>
           </h1>
 
@@ -4245,13 +4250,6 @@ function PartnerShowcase() {
 
 function Faq() {
   const [openIndex, setOpenIndex] = useState(0);
-  const faqItems = [
-    'Como a Solveri pode ajudar minha empresa a estar realmente preparada para emergências?',
-    'Quais tipos de treinamentos a Solveri oferece?',
-    'A Solveri desenvolve ou revisa planos e procedimentos de emergência?',
-    'Vocês também apoiam a implantação de processos, centrais e rotinas operacionais?',
-    'Como funciona a contratação dos serviços da Solveri?',
-  ];
 
   return (
     <section className="bg-[#F9F9F7] px-5 py-20 md:px-8 md:py-24">
@@ -4269,15 +4267,15 @@ function Faq() {
 
       <div className="mx-auto mt-12 w-full max-w-[754px]">
         <div className="divide-y divide-[#0F2017]/15 border-y border-[#0F2017]/15">
-          {faqItems.map((question, index) => (
-            <div key={question}>
+          {faqs.map((item, index) => (
+            <div key={item.question}>
               <button
                 type="button"
                 className="flex min-h-[58px] w-full items-center justify-between gap-6 py-4 text-left"
                 onClick={() => setOpenIndex(index === openIndex ? -1 : index)}
               >
                 <span className="font-heading text-[14px] font-bold leading-5 text-[#0F2017] sm:text-[15px]">
-                  {question}
+                  {item.question}
                 </span>
                 <span className="font-heading text-[18px] font-bold leading-none text-accent-bright">
                   {openIndex === index ? '−' : '+'}
@@ -4285,7 +4283,7 @@ function Faq() {
               </button>
               {openIndex === index && (
                 <p className="pb-4 pr-10 font-body text-[14px] leading-6 text-[#6F7370]">
-                  {faqs[index].answer}
+                  {item.answer}
                 </p>
               )}
             </div>
