@@ -108,9 +108,19 @@ html {
 }
 
 .portal-ring-logo {
+  display: grid;
+  place-items: center;
   background: rgba(7, 28, 17, 0.42);
   border: 1.5px solid rgba(255, 255, 255, 0.35);
+  box-sizing: border-box;
+  overflow: hidden;
   transition: background-color 180ms ease, border-color 180ms ease;
+}
+
+.portal-ring-logo-image,
+.portal-ring-logo-icon {
+  grid-area: 1 / 1;
+  transform-origin: center;
 }
 
 .portal-ring-sector:hover .portal-ring-logo,
