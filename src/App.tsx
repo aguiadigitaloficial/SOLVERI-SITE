@@ -778,9 +778,14 @@ function Hero() {
             Gestão integrada de riscos corporativos
           </div>
 
+<<<<<<< HEAD
           <h1 className="mt-7 max-w-[650px] font-heading text-[32px] font-bold leading-[1.08] text-white sm:text-[42px] lg:mt-12 lg:max-w-[760px] lg:text-[44px] xl:max-w-[780px] xl:text-[46px]">
             <span className="lg:block lg:whitespace-nowrap">Cuidando dos maiores</span>
             <span className="lg:block lg:whitespace-nowrap">patrimônios empresariais:</span>
+=======
+          <h1 className="mt-7 max-w-[650px] font-heading text-[32px] font-bold leading-[1.08] text-white sm:text-[42px] lg:mt-12 lg:max-w-[590px] lg:text-[46px] xl:text-[48px]">
+            <span>Cuidando dos maiores patrimônios empresariais:</span>
+>>>>>>> ad42fb6107da399917ff22a109a9cc3ebdc65980
             <span className="mt-1 block text-accent lg:whitespace-nowrap">Pessoas, Planeta e Reputação</span>
           </h1>
 
