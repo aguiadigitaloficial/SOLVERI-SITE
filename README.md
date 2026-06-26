@@ -70,3 +70,15 @@ Os arquivos finais sao gerados em `dist/`.
 Como o projeto usa rotas no navegador, a hospedagem deve encaminhar acessos como
 `/inicio`, `/consult` e `/academy` para o arquivo `index.html`. A configuracao exata depende
 do provedor de hospedagem escolhido.
+
+## SEO e deploy
+
+O projeto esta preparado para deploy na Vercel com:
+
+- `vercel.json` para fallback das rotas SPA.
+- `public/robots.txt` e `public/sitemap.xml` para indexacao.
+- `public/llms.txt` para resumo semantico do site para ferramentas de IA.
+- metadados por rota, Open Graph, Twitter Card e JSON-LD no app.
+
+Apos publicar, configure o dominio `solverigroup.com` na Vercel e envie
+`https://solverigroup.com/sitemap.xml` no Google Search Console.

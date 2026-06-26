@@ -1,0 +1,18 @@
+{
+  "name": "Solveri Group",
+  "short_name": "Solveri",
+  "description": "Gestão de riscos, emergências e crises para operações críticas.",
+  "lang": "pt-BR",
+  "start_url": "/",
+  "scope": "/",
+  "display": "standalone",
+  "background_color": "#F9F9F7",
+  "theme_color": "#0F2017",
+  "icons": [
+    {
+      "src": "/iconesite.png",
+      "sizes": "64x64",
+      "type": "image/png"
+    }
+  ]
+}

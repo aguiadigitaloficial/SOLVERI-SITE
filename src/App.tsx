@@ -21,9 +21,9 @@ import heroConsultImage from './assets/hero consult.png';
 import academyHeroBackground from './assets/fundo hero academy.png';
 import academyHeroLogo from './assets/logo hero academy.png';
 import academyHeroCircles from './assets/circulos hero academy.png';
-import segmentHeroRiverImage from './assets/segment-hero-river.png';
-import contactHeroBackground from './assets/contact-hero-background.png';
-import responseHeroBackground from './assets/response-hero-background.png';
+import segmentHeroRiverImage from './assets/segment-hero-river-optimized.jpg';
+import contactHeroBackground from './assets/contact-hero-background-optimized.jpg';
+import responseHeroBackground from './assets/response-hero-background-optimized.jpg';
 import alcoaClientLogo from './assets/clients/alcoa.png';
 import alumarClientLogo from './assets/clients/alumar.png';
 import anchietaClientLogo from './assets/clients/anchieta-alimentos.png';
@@ -38,7 +38,7 @@ import mooveClientLogo from './assets/clients/moove.png';
 import petrobrasClientLogo from './assets/clients/petrobras.png';
 import vectorSaudeClientLogo from './assets/clients/vector-saude.png';
 import veracelClientLogo from './assets/clients/veracel.png';
-import paisagemImage from './assets/paisagem.png';
+import paisagemImage from './assets/paisagem-optimized.jpg';
 import ircaLogo from './assets/irca.png';
 import advancedLogo from './assets/advanced.png';
 import starImage from './assets/estrela.png';
@@ -57,7 +57,7 @@ import setaImage from './assets/seta.png';
 import iconeImage from './assets/icone.png';
 import playButtonImage from './assets/play-button.png';
 import planejandoImage from './assets/planejando.png';
-import centraisAtendimentoProtocolarImage from './assets/centrais-atendimento-protocolar.png';
+import centraisAtendimentoProtocolarImage from './assets/centrais-atendimento-protocolar-optimized.jpg';
 import fluxogramaImage from './assets/fluxograma.png';
 import escrevendoImage from './assets/escrevendo.png';
 import centroControleOperacionalImage from './assets/centro-controle-operacional.webp';
@@ -76,7 +76,7 @@ import cadeirasSalaImage from './assets/cadeiras sala.png';
 import salaReuniao2Image from './assets/sala reuniao 2.png';
 import monitoresImage from './assets/monitores.png';
 import olhandoMonitoresImage from './assets/olhando monitores.png';
-import mochilasImage from './assets/mochilas.png';
+import mochilasImage from './assets/mochilas-optimized.jpg';
 import mesaECadeirasImage from './assets/mesa e cadeiras.png';
 import graficosImage from './assets/graficos.png';
 import analiseImage from './assets/analise.png';
@@ -119,6 +119,8 @@ const routePaths: Record<AppRoute, string> = {
   contato: '/contato',
 };
 
+const siteUrl = 'https://solverigroup.com';
+
 const pathRoutes = new Map<string, AppRoute>(
   Object.entries(routePaths).map(([route, path]) => [path, route as AppRoute]),
 );
@@ -142,6 +144,72 @@ const navLinks = [
   { label: 'Segmento', href: routePaths.segmento, route: 'segmento' as const },
   { label: 'Contato', href: routePaths.contato, route: 'contato' as const },
 ];
+
+type SeoConfig = {
+  title: string;
+  description: string;
+  path: string;
+  keywords: string;
+};
+
+const seoByRoute: Record<AppRoute, SeoConfig> = {
+  portal: {
+    title: 'Solveri Group | Gestão de Riscos, Emergências e Crises',
+    description:
+      'Escolha entre Solveri Group, Consult, Response, Academy e contato para conhecer soluções em gestão de riscos, emergências, crises e capacitação.',
+    path: routePaths.portal,
+    keywords:
+      'Solveri, Solveri Group, gestão de riscos, emergências, crises, consultoria, resposta operacional, treinamentos',
+  },
+  home: {
+    title: 'Solveri Group | Soluções Integradas em Riscos, Emergências e Crises',
+    description:
+      'Soluções integradas em gestão de riscos, emergências e crises para proteger pessoas, planeta e reputação em operações críticas.',
+    path: routePaths.home,
+    keywords:
+      'Solveri Group, gestão de riscos corporativos, emergências empresariais, gestão de crises, continuidade operacional',
+  },
+  consult: {
+    title: 'Solveri Consult | Consultoria em Gestão de Emergências e Crises',
+    description:
+      'Consultoria estratégica para estruturação de sistemas de emergência, planos, protocolos, centrais e gestão de crises em operações industriais.',
+    path: routePaths.consult,
+    keywords:
+      'Solveri Consult, consultoria em emergências, PAE, PEI, PEVO, PAEBM, gestão de crises, protocolos de emergência',
+  },
+  response: {
+    title: 'Solveri Response | Resposta Operacional para Emergências Industriais',
+    description:
+      'Equipes, estruturas e apoio técnico especializado para resposta a eventos críticos em ambientes industriais, minerários, logísticos e portuários.',
+    path: routePaths.response,
+    keywords:
+      'Solveri Response, emergência industrial, resposta operacional, EOR, centrais protocolares, postos de comando',
+  },
+  academy: {
+    title: 'Solveri Academy | Cursos, ICS/SCI e Capacitação Técnica',
+    description:
+      'Treinamentos presenciais, EAD e híbridos em ICS/SCI, normas regulamentadoras, SSMA e gestão de emergências para equipes operacionais.',
+    path: routePaths.academy,
+    keywords:
+      'Solveri Academy, cursos ICS, SCI, treinamentos de emergência, normas regulamentadoras, SSMA, capacitação técnica',
+  },
+  segmento: {
+    title: 'Segmentos de Atuação | Solveri Group',
+    description:
+      'Atuação integrada para mineração, energia, logística, portos, florestal, indústria, saneamento e outros setores de alta criticidade.',
+    path: routePaths.segmento,
+    keywords:
+      'segmentos Solveri, mineração, energia, logística, portuário, saneamento, petroquímico, emergências industriais',
+  },
+  contato: {
+    title: 'Contato | Fale com a Solveri Group',
+    description:
+      'Entre em contato com a Solveri Group para solicitar propostas, cursos, parcerias ou atendimento especializado em riscos e emergências.',
+    path: routePaths.contato,
+    keywords:
+      'contato Solveri, proposta Solveri, consultoria em riscos, atendimento emergências, cursos Solveri',
+  },
+};
 
 type NavbarTheme = {
   logo: string;
@@ -3313,7 +3381,7 @@ function ContactSection() {
       icon: Building2,
       href: 'https://www.google.com/maps/search/?api=1&query=Av.%20Alberto%20Lima%2C%203001%20Jo%C3%A3o%20Monlevade%20MG',
     },
-    { label: 'Site', value: 'www.solverigroup.com', icon: ArrowRight, href: 'https://www.solverigroup.com' },
+    { label: 'Site', value: 'solverigroup.com', icon: ArrowRight, href: 'https://solverigroup.com' },
   ];
 
   const units = [
@@ -4369,6 +4437,117 @@ function normalizePathname(pathname: string) {
   return pathname.replace(/\/+$/, '');
 }
 
+function buildAbsoluteUrl(path: string) {
+  return `${siteUrl}${path === '/' ? '/' : path}`;
+}
+
+function upsertMeta(selector: string, createAttributes: Record<string, string>, content: string) {
+  let element = document.head.querySelector<HTMLMetaElement>(selector);
+
+  if (!element) {
+    element = document.createElement('meta');
+    Object.entries(createAttributes).forEach(([key, value]) => element?.setAttribute(key, value));
+    document.head.appendChild(element);
+  }
+
+  element.setAttribute('content', content);
+}
+
+function upsertLink(selector: string, createAttributes: Record<string, string>, href: string) {
+  let element = document.head.querySelector<HTMLLinkElement>(selector);
+
+  if (!element) {
+    element = document.createElement('link');
+    Object.entries(createAttributes).forEach(([key, value]) => element?.setAttribute(key, value));
+    document.head.appendChild(element);
+  }
+
+  element.setAttribute('href', href);
+}
+
+function setRouteSeo(route: AppRoute) {
+  const seo = seoByRoute[route];
+  const canonicalUrl = buildAbsoluteUrl(seo.path);
+  const ogImage = `${siteUrl}/og-image.jpg`;
+
+  document.documentElement.lang = 'pt-BR';
+  document.title = seo.title;
+  upsertMeta('meta[name="description"]', { name: 'description' }, seo.description);
+  upsertMeta('meta[name="keywords"]', { name: 'keywords' }, seo.keywords);
+  upsertMeta('meta[property="og:title"]', { property: 'og:title' }, seo.title);
+  upsertMeta('meta[property="og:description"]', { property: 'og:description' }, seo.description);
+  upsertMeta('meta[property="og:url"]', { property: 'og:url' }, canonicalUrl);
+  upsertMeta('meta[property="og:image"]', { property: 'og:image' }, ogImage);
+  upsertMeta('meta[name="twitter:title"]', { name: 'twitter:title' }, seo.title);
+  upsertMeta('meta[name="twitter:description"]', { name: 'twitter:description' }, seo.description);
+  upsertMeta('meta[name="twitter:image"]', { name: 'twitter:image' }, ogImage);
+  upsertLink('link[rel="canonical"]', { rel: 'canonical' }, canonicalUrl);
+
+  const structuredData = {
+    '@context': 'https://schema.org',
+    '@graph': [
+      {
+        '@type': 'Organization',
+        '@id': `${siteUrl}/#organization`,
+        name: 'Solveri Group',
+        url: siteUrl,
+        logo: `${siteUrl}/iconesite.png`,
+        email: 'contato@solverigroup.com',
+        telephone: '+55 31 3850-3510',
+        address: {
+          '@type': 'PostalAddress',
+          streetAddress: 'Av. Alberto Lima, 3001 - sala 12',
+          addressLocality: 'João Monlevade',
+          addressRegion: 'MG',
+          addressCountry: 'BR',
+        },
+        sameAs: [
+          'https://solverigroup.com/',
+        ],
+      },
+      {
+        '@type': 'WebSite',
+        '@id': `${siteUrl}/#website`,
+        name: 'Solveri Group',
+        url: siteUrl,
+        publisher: { '@id': `${siteUrl}/#organization` },
+        inLanguage: 'pt-BR',
+      },
+      {
+        '@type': 'WebPage',
+        '@id': `${canonicalUrl}#webpage`,
+        url: canonicalUrl,
+        name: seo.title,
+        description: seo.description,
+        isPartOf: { '@id': `${siteUrl}/#website` },
+        about: { '@id': `${siteUrl}/#organization` },
+        inLanguage: 'pt-BR',
+      },
+      {
+        '@type': 'ItemList',
+        '@id': `${siteUrl}/#services`,
+        name: 'Áreas de atuação da Solveri',
+        itemListElement: [
+          { '@type': 'ListItem', position: 1, name: 'Solveri Consult', url: buildAbsoluteUrl(routePaths.consult) },
+          { '@type': 'ListItem', position: 2, name: 'Solveri Response', url: buildAbsoluteUrl(routePaths.response) },
+          { '@type': 'ListItem', position: 3, name: 'Solveri Academy', url: buildAbsoluteUrl(routePaths.academy) },
+        ],
+      },
+    ],
+  };
+
+  let script = document.head.querySelector<HTMLScriptElement>('script[data-solveri-schema]');
+
+  if (!script) {
+    script = document.createElement('script');
+    script.type = 'application/ld+json';
+    script.dataset.solveriSchema = 'true';
+    document.head.appendChild(script);
+  }
+
+  script.textContent = JSON.stringify(structuredData);
+}
+
 function routeFromLocation(): AppRoute {
   const pathname = normalizePathname(window.location.pathname);
   const legacyDestination = pathname === '/' ? legacyHashDestinations[window.location.hash] : undefined;
@@ -4378,6 +4557,24 @@ function routeFromLocation(): AppRoute {
 
 function App() {
   const [route, setRoute] = useState<AppRoute>(routeFromLocation);
+
+  useEffect(() => {
+    setRouteSeo(route);
+  }, [route]);
+
+  useEffect(() => {
+    window.requestAnimationFrame(() => {
+      const firstSection = document.querySelector('main section');
+
+      document.querySelectorAll<HTMLImageElement>('img').forEach((image) => {
+        image.decoding = 'async';
+
+        if (!firstSection?.contains(image) && !image.hasAttribute('loading')) {
+          image.loading = 'lazy';
+        }
+      });
+    });
+  }, [route]);
 
   useEffect(() => {
     const scrollToCurrentDestination = (currentRoute: AppRoute) => {
