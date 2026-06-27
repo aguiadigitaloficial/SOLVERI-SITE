@@ -547,11 +547,19 @@ type PortalDestination = {
   route: InternalRoute;
   name: string;
   shortLabel: string;
+  label: string;
   description: [string, string, string];
   logo?: string;
   logoAlt?: string;
-  markClassName: string;
+  logoBoxClassName: string;
+  logoClassName?: string;
   angle: number;
+  textPath: {
+    startAngle: number;
+    endAngle: number;
+    sweep: 0 | 1;
+    radius?: number;
+  };
 };
 
 const portalDestinations: PortalDestination[] = [
@@ -559,49 +567,59 @@ const portalDestinations: PortalDestination[] = [
     route: 'home',
     name: 'Solveri Group',
     shortLabel: 'Group',
+    label: 'Solveri Group',
     description: ['Conheça a Solveri', 'gestão integrada', 'para riscos críticos'],
     logo: logoSolveri,
     logoAlt: 'Solveri Group',
-    markClassName: 'h-[34%] w-[68%]',
+    logoBoxClassName: 'h-[38%] w-[76%]',
     angle: -90,
+    textPath: { startAngle: -126, endAngle: -54, sweep: 1 },
   },
   {
     route: 'response',
     name: 'Solveri Response',
     shortLabel: 'Response',
+    label: 'Solveri Response',
     description: ['Resposta operacional', 'para emergências', 'de alta criticidade'],
     logo: logoCardResponse,
     logoAlt: 'Solveri Response',
-    markClassName: 'h-[62%] w-[62%]',
+    logoBoxClassName: 'h-[70%] w-[70%]',
     angle: -18,
+    textPath: { startAngle: -48, endAngle: 30, sweep: 1 },
   },
   {
     route: 'academy',
     name: 'Solveri Academy',
     shortLabel: 'Academy',
+    label: 'Solveri Academy',
     description: ['Formação técnica', 'para equipes', 'mais preparadas'],
     logo: academyHeroLogo,
     logoAlt: 'Solveri Academy',
-    markClassName: 'h-[68%] w-[64%]',
+    logoBoxClassName: 'h-[76%] w-[72%]',
     angle: 54,
+    textPath: { startAngle: 24, endAngle: 92, sweep: 1 },
   },
   {
     route: 'contato',
     name: 'Contato',
     shortLabel: 'Contato',
+    label: 'Contato',
     description: ['Fale diretamente', 'com nossa equipe', 'sobre seu cenário'],
-    markClassName: 'h-[46%] w-[46%]',
+    logoBoxClassName: 'h-[54%] w-[54%]',
     angle: 126,
+    textPath: { startAngle: 158, endAngle: 92, sweep: 0 },
   },
   {
     route: 'consult',
     name: 'Solveri Consult',
     shortLabel: 'Consult',
+    label: 'Solveri Consult',
     description: ['Estratégia e prevenção', 'gestão de riscos', 'e crises'],
     logo: logoPreta,
     logoAlt: 'Solveri Consult',
-    markClassName: 'h-[66%] w-[66%]',
+    logoBoxClassName: 'h-[76%] w-[76%]',
     angle: 198,
+    textPath: { startAngle: 232, endAngle: 162, sweep: 0 },
   },
 ];
 
@@ -627,6 +645,14 @@ function createRingSegmentPath(startAngle: number, endAngle: number, outerRadius
     `A ${innerRadius} ${innerRadius} 0 0 1 ${innerEnd.x} ${innerEnd.y}`,
     'Z',
   ].join(' ');
+}
+
+function createPortalTextPath(startAngle: number, endAngle: number, sweep: 0 | 1, radius = 41) {
+  const center = 50;
+  const start = polarPoint(center, radius, startAngle);
+  const end = polarPoint(center, radius, endAngle);
+
+  return `M ${start.x} ${start.y} A ${radius} ${radius} 0 0 ${sweep} ${end.x} ${end.y}`;
 }
 
 function PortalLanding({ onNavigate }: { onNavigate: (route: InternalRoute) => void }) {
@@ -663,11 +689,25 @@ function PortalLanding({ onNavigate }: { onNavigate: (route: InternalRoute) => v
           >
             <circle className="portal-ring-guide" cx="50" cy="50" r="49" aria-hidden="true" />
             <circle className="portal-ring-guide portal-ring-guide--inner" cx="50" cy="50" r="27" aria-hidden="true" />
+            <defs>
+              {portalDestinations.map((destination) => (
+                <path
+                  key={`${destination.route}-label-path`}
+                  id={`portal-label-${destination.route}`}
+                  d={createPortalTextPath(
+                    destination.textPath.startAngle,
+                    destination.textPath.endAngle,
+                    destination.textPath.sweep,
+                    destination.textPath.radius,
+                  )}
+                />
+              ))}
+            </defs>
 
             {portalDestinations.map((destination, index) => {
               const isSelected = destination.route === selectedRoute;
               const iconPoint = polarPoint(50, 38, destination.angle);
-              const iconSize = 17;
+              const iconSize = 16;
 
               return (
                 <a
@@ -689,6 +729,11 @@ function PortalLanding({ onNavigate }: { onNavigate: (route: InternalRoute) => v
                       isSelected ? 'is-active' : ''
                     }`}
                   />
+                  <text className={`portal-ring-label ${isSelected ? 'is-active' : ''}`}>
+                    <textPath href={`#portal-label-${destination.route}`} startOffset="50%" textAnchor="middle">
+                      {destination.label}
+                    </textPath>
+                  </text>
                   <foreignObject
                     x={iconPoint.x - iconSize / 2}
                     y={iconPoint.y - iconSize / 2}
@@ -697,22 +742,22 @@ function PortalLanding({ onNavigate }: { onNavigate: (route: InternalRoute) => v
                     className="pointer-events-none overflow-visible"
                     aria-hidden="true"
                   >
-                    <div className={`portal-ring-logo h-full w-full rounded-full ${isSelected ? 'is-active' : ''}`}>
-                      <span className={`portal-ring-logo-mark ${destination.markClassName}`} aria-hidden="true">
-                        {destination.logo ? (
-                          <img
-                            src={destination.logo}
-                            alt=""
-                            className={`portal-ring-logo-image ${isSelected ? 'brightness-0' : 'brightness-0 invert'}`}
-                          />
-                        ) : (
-                          <Mail
-                            className={`portal-ring-logo-icon ${isSelected ? 'text-[#0F2017]' : 'text-white'}`}
-                            strokeWidth={1.8}
-                          />
-                        )}
-                      </span>
-                    </div>
+                    <span className={`portal-ring-mark ${destination.logoBoxClassName}`} aria-hidden="true">
+                      {destination.logo ? (
+                        <img
+                          src={destination.logo}
+                          alt=""
+                          className={`portal-ring-mark-image ${destination.logoClassName ?? ''} ${
+                            isSelected ? 'brightness-0' : 'brightness-0 invert'
+                          }`}
+                        />
+                      ) : (
+                        <Mail
+                          className={`portal-ring-mark-icon ${isSelected ? 'text-[#0F2017]' : 'text-white'}`}
+                          strokeWidth={1.9}
+                        />
+                      )}
+                    </span>
                   </foreignObject>
                 </a>
               );
