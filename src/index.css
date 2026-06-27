@@ -114,12 +114,18 @@ html {
   border: 1.5px solid rgba(255, 255, 255, 0.35);
   box-sizing: border-box;
   overflow: hidden;
+  padding: clamp(0.34rem, 1.25vw, 0.7rem);
   transition: background-color 180ms ease, border-color 180ms ease;
 }
 
 .portal-ring-logo-image,
 .portal-ring-logo-icon {
   grid-area: 1 / 1;
+  display: block;
+  max-width: 100%;
+  max-height: 100%;
+  object-fit: contain;
+  object-position: center;
   transform-origin: center;
 }
 
