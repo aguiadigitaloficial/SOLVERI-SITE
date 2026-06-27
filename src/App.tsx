@@ -550,12 +550,7 @@ type PortalDestination = {
   description: [string, string, string];
   logo?: string;
   logoAlt?: string;
-  badgeVisual: {
-    widthPercent: number;
-    heightPercent: number;
-    offsetXPercent?: number;
-    offsetYPercent?: number;
-  };
+  markClassName: string;
   angle: number;
 };
 
@@ -567,11 +562,7 @@ const portalDestinations: PortalDestination[] = [
     description: ['Conheça a Solveri', 'gestão integrada', 'para riscos críticos'],
     logo: logoSolveri,
     logoAlt: 'Solveri Group',
-    badgeVisual: {
-      widthPercent: 64,
-      heightPercent: 30,
-      offsetYPercent: 1,
-    },
+    markClassName: 'h-[34%] w-[68%]',
     angle: -90,
   },
   {
@@ -581,10 +572,7 @@ const portalDestinations: PortalDestination[] = [
     description: ['Resposta operacional', 'para emergências', 'de alta criticidade'],
     logo: logoCardResponse,
     logoAlt: 'Solveri Response',
-    badgeVisual: {
-      widthPercent: 52,
-      heightPercent: 56,
-    },
+    markClassName: 'h-[62%] w-[62%]',
     angle: -18,
   },
   {
@@ -594,11 +582,7 @@ const portalDestinations: PortalDestination[] = [
     description: ['Formação técnica', 'para equipes', 'mais preparadas'],
     logo: academyHeroLogo,
     logoAlt: 'Solveri Academy',
-    badgeVisual: {
-      widthPercent: 52,
-      heightPercent: 58,
-      offsetYPercent: -1,
-    },
+    markClassName: 'h-[68%] w-[64%]',
     angle: 54,
   },
   {
@@ -606,10 +590,7 @@ const portalDestinations: PortalDestination[] = [
     name: 'Contato',
     shortLabel: 'Contato',
     description: ['Fale diretamente', 'com nossa equipe', 'sobre seu cenário'],
-    badgeVisual: {
-      widthPercent: 38,
-      heightPercent: 38,
-    },
+    markClassName: 'h-[46%] w-[46%]',
     angle: 126,
   },
   {
@@ -619,11 +600,7 @@ const portalDestinations: PortalDestination[] = [
     description: ['Estratégia e prevenção', 'gestão de riscos', 'e crises'],
     logo: logoPreta,
     logoAlt: 'Solveri Consult',
-    badgeVisual: {
-      widthPercent: 56,
-      heightPercent: 56,
-      offsetXPercent: -1,
-    },
+    markClassName: 'h-[66%] w-[66%]',
     angle: 198,
   },
 ];
@@ -691,11 +668,6 @@ function PortalLanding({ onNavigate }: { onNavigate: (route: InternalRoute) => v
               const isSelected = destination.route === selectedRoute;
               const iconPoint = polarPoint(50, 38, destination.angle);
               const iconSize = 17;
-              const badgeVisualStyle = {
-                width: `${destination.badgeVisual.widthPercent}%`,
-                height: `${destination.badgeVisual.heightPercent}%`,
-                transform: `translate(${destination.badgeVisual.offsetXPercent ?? 0}%, ${destination.badgeVisual.offsetYPercent ?? 0}%)`,
-              };
 
               return (
                 <a
@@ -726,21 +698,20 @@ function PortalLanding({ onNavigate }: { onNavigate: (route: InternalRoute) => v
                     aria-hidden="true"
                   >
                     <div className={`portal-ring-logo h-full w-full rounded-full ${isSelected ? 'is-active' : ''}`}>
-                      {destination.logo ? (
-                        <img
-                          src={destination.logo}
-                          alt=""
-                          className={`portal-ring-logo-image ${isSelected ? 'brightness-0' : 'brightness-0 invert'}`}
-                          style={badgeVisualStyle}
-                        />
-                      ) : (
-                        <Mail
-                          className={`portal-ring-logo-icon ${isSelected ? 'text-[#0F2017]' : 'text-white'}`}
-                          size="54%"
-                          strokeWidth={1.8}
-                          style={badgeVisualStyle}
-                        />
-                      )}
+                      <span className={`portal-ring-logo-mark ${destination.markClassName}`} aria-hidden="true">
+                        {destination.logo ? (
+                          <img
+                            src={destination.logo}
+                            alt=""
+                            className={`portal-ring-logo-image ${isSelected ? 'brightness-0' : 'brightness-0 invert'}`}
+                          />
+                        ) : (
+                          <Mail
+                            className={`portal-ring-logo-icon ${isSelected ? 'text-[#0F2017]' : 'text-white'}`}
+                            strokeWidth={1.8}
+                          />
+                        )}
+                      </span>
                     </div>
                   </foreignObject>
                 </a>
