@@ -608,7 +608,8 @@ const portalDestinations: PortalDestination[] = [
     description: ['Fale diretamente', 'com nossa equipe', 'sobre seu cenário'],
     markWidth: 10,
     markHeight: 10,
-    markOffsetY: -3,
+    markOffsetX: -4,
+    markOffsetY: -1,
     angle: 126,
   },
   {
