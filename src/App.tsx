@@ -16,6 +16,7 @@ import logoSolveriHorizontal from './assets/logo solveri horizontal.png';
 import logoResponse from './assets/logo-response.jpg';
 import logoCardResponse from './assets/logo card response.png';
 import logoSolveri from './assets/logo-solveri.png';
+import solveriGroupPortalLogo from './assets/solveri-group-portal.png';
 import logoPreta from './assets/logo preta.png';
 import heroConsultImage from './assets/hero consult.png';
 import academyHeroBackground from './assets/fundo hero academy.png';
@@ -551,6 +552,9 @@ type PortalDestination = {
   logo?: string;
   logoAlt?: string;
   markClassName: string;
+  markOffsetX?: number;
+  markOffsetY?: number;
+  iconSize?: number;
   angle: number;
 };
 
@@ -560,9 +564,10 @@ const portalDestinations: PortalDestination[] = [
     name: 'Solveri Group',
     shortLabel: 'Group',
     description: ['Conheça a Solveri', 'gestão integrada', 'para riscos críticos'],
-    logo: logoSolveri,
+    logo: solveriGroupPortalLogo,
     logoAlt: 'Solveri Group',
-    markClassName: 'h-[34%] w-[68%]',
+    markClassName: 'h-[72%] w-[72%]',
+    iconSize: 21,
     angle: -90,
   },
   {
@@ -572,7 +577,8 @@ const portalDestinations: PortalDestination[] = [
     description: ['Resposta operacional', 'para emergências', 'de alta criticidade'],
     logo: logoCardResponse,
     logoAlt: 'Solveri Response',
-    markClassName: 'h-[62%] w-[62%]',
+    markClassName: 'h-[76%] w-[76%]',
+    iconSize: 19,
     angle: -18,
   },
   {
@@ -582,7 +588,8 @@ const portalDestinations: PortalDestination[] = [
     description: ['Formação técnica', 'para equipes', 'mais preparadas'],
     logo: academyHeroLogo,
     logoAlt: 'Solveri Academy',
-    markClassName: 'h-[68%] w-[64%]',
+    markClassName: 'h-[82%] w-[78%]',
+    iconSize: 19,
     angle: 54,
   },
   {
@@ -590,7 +597,8 @@ const portalDestinations: PortalDestination[] = [
     name: 'Contato',
     shortLabel: 'Contato',
     description: ['Fale diretamente', 'com nossa equipe', 'sobre seu cenário'],
-    markClassName: 'h-[46%] w-[46%]',
+    markClassName: 'h-[64%] w-[64%]',
+    iconSize: 18,
     angle: 126,
   },
   {
@@ -600,7 +608,8 @@ const portalDestinations: PortalDestination[] = [
     description: ['Estratégia e prevenção', 'gestão de riscos', 'e crises'],
     logo: logoPreta,
     logoAlt: 'Solveri Consult',
-    markClassName: 'h-[66%] w-[66%]',
+    markClassName: 'h-[82%] w-[82%]',
+    iconSize: 19,
     angle: 198,
   },
 ];
@@ -666,8 +675,12 @@ function PortalLanding({ onNavigate }: { onNavigate: (route: InternalRoute) => v
 
             {portalDestinations.map((destination, index) => {
               const isSelected = destination.route === selectedRoute;
-              const iconPoint = polarPoint(50, 38, destination.angle);
-              const iconSize = 17;
+              const baseIconPoint = polarPoint(50, 38, destination.angle);
+              const iconPoint = {
+                x: baseIconPoint.x + (destination.markOffsetX ?? 0),
+                y: baseIconPoint.y + (destination.markOffsetY ?? 0),
+              };
+              const iconSize = destination.iconSize ?? 19;
 
               return (
                 <a
@@ -706,9 +719,9 @@ function PortalLanding({ onNavigate }: { onNavigate: (route: InternalRoute) => v
                             className={`portal-ring-logo-image ${isSelected ? 'brightness-0' : 'brightness-0 invert'}`}
                           />
                         ) : (
-                          <Mail
+                          <Phone
                             className={`portal-ring-logo-icon ${isSelected ? 'text-[#0F2017]' : 'text-white'}`}
-                            strokeWidth={1.8}
+                            strokeWidth={1.9}
                           />
                         )}
                       </span>
