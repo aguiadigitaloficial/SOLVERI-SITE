@@ -590,6 +590,7 @@ const portalDestinations: PortalDestination[] = [
     logoAlt: 'Solveri Academy',
     markWidth: 12,
     markHeight: 13,
+    markOffsetY: -2,
     angle: 54,
   },
   {
@@ -599,6 +600,7 @@ const portalDestinations: PortalDestination[] = [
     description: ['Fale diretamente', 'com nossa equipe', 'sobre seu cenário'],
     markWidth: 10,
     markHeight: 10,
+    markOffsetY: -3,
     angle: 126,
   },
   {
