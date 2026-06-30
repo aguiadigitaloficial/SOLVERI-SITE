@@ -4386,11 +4386,14 @@ function Footer() {
             Gestão de riscos, emergências e crises com visão estratégica, método e capacidade operacional.
           </p>
           <div className="mt-6 flex gap-3">
-            <a className="flex h-9 w-9 items-center justify-center rounded-[4px] border border-white/10 bg-[#232A25] transition hover:border-accent-bright" href="/contato" aria-label="Instagram Solveri">
+            <a className="flex h-9 w-9 items-center justify-center rounded-[4px] border border-white/10 bg-[#232A25] transition hover:border-accent-bright focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-accent-bright" href="https://www.instagram.com/solverisolutions/" target="_blank" rel="noreferrer" aria-label="Instagram Solveri">
               <img src={instagramIcon} alt="" aria-hidden="true" className="h-4 w-4" />
             </a>
-            <a className="flex h-9 w-9 items-center justify-center rounded-[4px] border border-white/10 bg-[#232A25] transition hover:border-accent-bright" href="/contato" aria-label="LinkedIn Solveri">
+            <a className="flex h-9 w-9 items-center justify-center rounded-[4px] border border-white/10 bg-[#232A25] transition hover:border-accent-bright focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-accent-bright" href="https://www.linkedin.com/company/solveri-solutions/" target="_blank" rel="noreferrer" aria-label="LinkedIn Solveri">
               <img src={linkedinIcon} alt="" aria-hidden="true" className="h-4 w-4" />
+            </a>
+            <a className="flex h-9 w-9 items-center justify-center rounded-[4px] border border-white/10 bg-[#232A25] text-accent-bright transition hover:border-accent-bright focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-accent-bright" href="https://wa.me/553138503510" target="_blank" rel="noreferrer" aria-label="WhatsApp Solveri">
+              <Phone size={17} aria-hidden="true" />
             </a>
           </div>
         </div>
@@ -4409,9 +4412,9 @@ function Footer() {
         <div>
           <h3 className="font-heading text-[12px] font-bold uppercase tracking-[2.4px] text-accent-bright">Contato</h3>
           <div className="mt-5 space-y-4 font-body text-[13px] leading-6 text-[#B1B7B2]">
-            <p className="flex gap-3"><Phone className="shrink-0 text-accent-bright" size={16} /> +55 31 3850-3510</p>
-            <p className="flex gap-3"><Mail className="shrink-0 text-accent-bright" size={16} /> contato@solverigroup.com</p>
-            <p className="flex gap-3"><Building2 className="shrink-0 text-accent-bright" size={16} /> Av. Alberto Lima, 3001 - sala 12, João Monlevade - MG</p>
+            <a className="flex gap-3 transition hover:text-white focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-accent-bright" href="https://wa.me/553138503510" target="_blank" rel="noreferrer"><Phone className="shrink-0 text-accent-bright" size={16} /> +55 31 3850-3510</a>
+            <a className="flex gap-3 transition hover:text-white focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-accent-bright" href="mailto:contato@solverigroup.com"><Mail className="shrink-0 text-accent-bright" size={16} /> contato@solverigroup.com</a>
+            <a className="flex gap-3 transition hover:text-white focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-accent-bright" href="https://www.google.com/maps/search/?api=1&query=Av.%20Alberto%20Lima%203001%20sala%2012%20Jo%C3%A3o%20Monlevade%20MG" target="_blank" rel="noreferrer"><Building2 className="shrink-0 text-accent-bright" size={16} /> Av. Alberto Lima, 3001 - sala 12, João Monlevade - MG</a>
           </div>
         </div>
       </div>
@@ -4419,11 +4422,7 @@ function Footer() {
       <div className="border-t border-white/10">
         <div className="mx-auto flex min-h-16 w-full max-w-[1344px] flex-col gap-3 px-5 py-5 font-body text-[12px] text-[#8F948F] md:flex-row md:items-center md:justify-between md:px-8">
           <span>Copyright 2026 Solveri Group. Todos os direitos reservados.</span>
-          <span>Desenvolvido por <span className="text-accent-bright">Águia Digital</span></span>
-          <div className="flex gap-6">
-            <a className="hover:text-white" href="/">Política de Privacidade</a>
-            <a className="hover:text-white" href="/">Termos de Uso</a>
-          </div>
+          <a className="transition hover:text-white focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-accent-bright" href="https://www.aguiadigital.com/" target="_blank" rel="noreferrer">Desenvolvido por <span className="text-accent-bright">Águia Digital</span></a>
         </div>
       </div>
     </footer>
