@@ -551,10 +551,10 @@ type PortalDestination = {
   description: [string, string, string];
   logo?: string;
   logoAlt?: string;
-  markClassName: string;
+  markWidth: number;
+  markHeight: number;
   markOffsetX?: number;
   markOffsetY?: number;
-  iconSize?: number;
   angle: number;
 };
 
@@ -566,8 +566,8 @@ const portalDestinations: PortalDestination[] = [
     description: ['Conheça a Solveri', 'gestão integrada', 'para riscos críticos'],
     logo: solveriGroupPortalLogo,
     logoAlt: 'Solveri Group',
-    markClassName: 'h-[72%] w-[72%]',
-    iconSize: 21,
+    markWidth: 16,
+    markHeight: 12,
     angle: -90,
   },
   {
@@ -577,8 +577,8 @@ const portalDestinations: PortalDestination[] = [
     description: ['Resposta operacional', 'para emergências', 'de alta criticidade'],
     logo: logoCardResponse,
     logoAlt: 'Solveri Response',
-    markClassName: 'h-[76%] w-[76%]',
-    iconSize: 19,
+    markWidth: 13,
+    markHeight: 13,
     angle: -18,
   },
   {
@@ -588,8 +588,8 @@ const portalDestinations: PortalDestination[] = [
     description: ['Formação técnica', 'para equipes', 'mais preparadas'],
     logo: academyHeroLogo,
     logoAlt: 'Solveri Academy',
-    markClassName: 'h-[70%] w-[66%]',
-    iconSize: 19,
+    markWidth: 12,
+    markHeight: 13,
     angle: 54,
   },
   {
@@ -597,8 +597,8 @@ const portalDestinations: PortalDestination[] = [
     name: 'Contato',
     shortLabel: 'Contato',
     description: ['Fale diretamente', 'com nossa equipe', 'sobre seu cenário'],
-    markClassName: 'h-[64%] w-[64%]',
-    iconSize: 18,
+    markWidth: 10,
+    markHeight: 10,
     angle: 126,
   },
   {
@@ -608,8 +608,8 @@ const portalDestinations: PortalDestination[] = [
     description: ['Estratégia e prevenção', 'gestão de riscos', 'e crises'],
     logo: logoPreta,
     logoAlt: 'Solveri Consult',
-    markClassName: 'h-[70%] w-[70%]',
-    iconSize: 19,
+    markWidth: 13,
+    markHeight: 13,
     angle: 198,
   },
 ];
@@ -636,6 +636,38 @@ function createRingSegmentPath(startAngle: number, endAngle: number, outerRadius
     `A ${innerRadius} ${innerRadius} 0 0 1 ${innerEnd.x} ${innerEnd.y}`,
     'Z',
   ].join(' ');
+}
+
+function PhoneSvgMark({
+  centerX,
+  centerY,
+  size,
+  active,
+}: {
+  centerX: number;
+  centerY: number;
+  size: number;
+  active: boolean;
+}) {
+  const scale = size / 24;
+
+  return (
+    <g
+      aria-hidden="true"
+      className="portal-ring-native-mark"
+      transform={`translate(${centerX - size / 2} ${centerY - size / 2}) scale(${scale})`}
+    >
+      <path
+        d="M22 16.92v3a2 2 0 0 1-2.18 2A19.8 19.8 0 0 1 11.19 19 19.5 19.5 0 0 1 5 12.81 19.8 19.8 0 0 1 2.08 4.18 2 2 0 0 1 4.06 2h3a2 2 0 0 1 2 1.72c.12.91.33 1.8.62 2.65a2 2 0 0 1-.45 2.11L8 9.72a16 16 0 0 0 6.28 6.28l1.24-1.23a2 2 0 0 1 2.11-.45c.85.29 1.74.5 2.65.62A2 2 0 0 1 22 16.92Z"
+        fill="none"
+        stroke={active ? '#0F2017' : '#FFFFFF'}
+        strokeLinecap="round"
+        strokeLinejoin="round"
+        strokeWidth="1.9"
+        vectorEffect="non-scaling-stroke"
+      />
+    </g>
+  );
 }
 
 function PortalLanding({ onNavigate }: { onNavigate: (route: InternalRoute) => void }) {
@@ -680,7 +712,6 @@ function PortalLanding({ onNavigate }: { onNavigate: (route: InternalRoute) => v
                 x: baseIconPoint.x + (destination.markOffsetX ?? 0),
                 y: baseIconPoint.y + (destination.markOffsetY ?? 0),
               };
-              const iconSize = destination.iconSize ?? 19;
 
               return (
                 <a
@@ -702,31 +733,26 @@ function PortalLanding({ onNavigate }: { onNavigate: (route: InternalRoute) => v
                       isSelected ? 'is-active' : ''
                     }`}
                   />
-                  <foreignObject
-                    x={iconPoint.x - iconSize / 2}
-                    y={iconPoint.y - iconSize / 2}
-                    width={iconSize}
-                    height={iconSize}
-                    className="pointer-events-none overflow-visible"
-                    aria-hidden="true"
-                  >
-                    <div className={`portal-ring-logo h-full w-full rounded-full ${isSelected ? 'is-active' : ''}`}>
-                      <span className={`portal-ring-logo-mark ${destination.markClassName}`} aria-hidden="true">
-                        {destination.logo ? (
-                          <img
-                            src={destination.logo}
-                            alt=""
-                            className={`portal-ring-logo-image ${isSelected ? 'brightness-0' : 'brightness-0 invert'}`}
-                          />
-                        ) : (
-                          <Phone
-                            className={`portal-ring-logo-icon ${isSelected ? 'text-[#0F2017]' : 'text-white'}`}
-                            strokeWidth={1.9}
-                          />
-                        )}
-                      </span>
-                    </div>
-                  </foreignObject>
+                  {destination.logo ? (
+                    <image
+                      aria-hidden="true"
+                      className="portal-ring-native-mark"
+                      href={destination.logo}
+                      x={iconPoint.x - destination.markWidth / 2}
+                      y={iconPoint.y - destination.markHeight / 2}
+                      width={destination.markWidth}
+                      height={destination.markHeight}
+                      preserveAspectRatio="xMidYMid meet"
+                      style={{ filter: isSelected ? 'brightness(0)' : 'brightness(0) invert(1)' }}
+                    />
+                  ) : (
+                    <PhoneSvgMark
+                      centerX={iconPoint.x}
+                      centerY={iconPoint.y}
+                      size={destination.markWidth}
+                      active={isSelected}
+                    />
+                  )}
                 </a>
               );
             })}

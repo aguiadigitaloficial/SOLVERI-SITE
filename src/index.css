@@ -107,40 +107,10 @@ html {
   stroke-width: 1.2;
 }
 
-.portal-ring-logo {
-  display: grid;
-  place-items: center;
-  background: transparent;
-  border: 0;
-  box-sizing: border-box;
-  overflow: visible;
-  transition: background-color 180ms ease, border-color 180ms ease;
-}
-
-.portal-ring-logo-mark {
-  grid-area: 1 / 1;
-  display: grid;
-  place-items: center;
-  line-height: 0;
-}
-
-.portal-ring-logo-image,
-.portal-ring-logo-icon {
-  display: block;
-  height: 100%;
-  width: 100%;
-  max-height: none;
-  max-width: none;
-  object-fit: contain;
-  object-position: center;
+.portal-ring-native-mark {
+  pointer-events: none;
+  transform-box: fill-box;
   transform-origin: center;
-}
-
-.portal-ring-sector:hover .portal-ring-logo,
-.portal-ring-sector:focus-visible .portal-ring-logo,
-.portal-ring-logo.is-active {
-  background: transparent;
-  border-color: transparent;
 }
 
 .portal-center {
@@ -363,7 +333,7 @@ html {
   }
 
   .portal-ring-sector-shape,
-  .portal-ring-logo {
+  .portal-ring-native-mark {
     transition: none;
   }
 
