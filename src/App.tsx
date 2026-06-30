@@ -17,14 +17,18 @@ import logoResponse from './assets/logo-response.jpg';
 import logoCardResponse from './assets/logo card response.png';
 import logoSolveri from './assets/logo-solveri.png';
 import solveriGroupPortalLogo from './assets/solveri-group-portal.png';
+import solveriGroupPortalLogoWhite from './assets/portal-logo-group-white.png';
 import logoPreta from './assets/logo preta.png';
+import logoPretaWhite from './assets/portal-logo-consult-white.png';
 import heroConsultImage from './assets/hero consult.png';
 import academyHeroBackground from './assets/fundo hero academy.png';
 import academyHeroLogo from './assets/logo hero academy.png';
+import academyHeroLogoWhite from './assets/portal-logo-academy-white.png';
 import academyHeroCircles from './assets/circulos hero academy.png';
 import segmentHeroRiverImage from './assets/segment-hero-background.png';
 import contactHeroBackground from './assets/contact-hero-background-optimized.jpg';
 import responseHeroBackground from './assets/response-hero-background-optimized.jpg';
+import logoCardResponseWhite from './assets/portal-logo-response-white.png';
 import alcoaClientLogo from './assets/clients/alcoa.png';
 import alumarClientLogo from './assets/clients/alumar.png';
 import anchietaClientLogo from './assets/clients/anchieta-alimentos.png';
@@ -549,7 +553,8 @@ type PortalDestination = {
   name: string;
   shortLabel: string;
   description: [string, string, string];
-  logo?: string;
+  logoDark?: string;
+  logoLight?: string;
   logoAlt?: string;
   markWidth: number;
   markHeight: number;
@@ -564,7 +569,8 @@ const portalDestinations: PortalDestination[] = [
     name: 'Solveri Group',
     shortLabel: 'Group',
     description: ['Conheça a Solveri', 'gestão integrada', 'para riscos críticos'],
-    logo: solveriGroupPortalLogo,
+    logoDark: solveriGroupPortalLogo,
+    logoLight: solveriGroupPortalLogoWhite,
     logoAlt: 'Solveri Group',
     markWidth: 16,
     markHeight: 12,
@@ -575,7 +581,8 @@ const portalDestinations: PortalDestination[] = [
     name: 'Solveri Response',
     shortLabel: 'Response',
     description: ['Resposta operacional', 'para emergências', 'de alta criticidade'],
-    logo: logoCardResponse,
+    logoDark: logoCardResponse,
+    logoLight: logoCardResponseWhite,
     logoAlt: 'Solveri Response',
     markWidth: 13,
     markHeight: 13,
@@ -586,7 +593,8 @@ const portalDestinations: PortalDestination[] = [
     name: 'Solveri Academy',
     shortLabel: 'Academy',
     description: ['Formação técnica', 'para equipes', 'mais preparadas'],
-    logo: academyHeroLogo,
+    logoDark: academyHeroLogo,
+    logoLight: academyHeroLogoWhite,
     logoAlt: 'Solveri Academy',
     markWidth: 12,
     markHeight: 13,
@@ -608,7 +616,8 @@ const portalDestinations: PortalDestination[] = [
     name: 'Solveri Consult',
     shortLabel: 'Consult',
     description: ['Estratégia e prevenção', 'gestão de riscos', 'e crises'],
-    logo: logoPreta,
+    logoDark: logoPreta,
+    logoLight: logoPretaWhite,
     logoAlt: 'Solveri Consult',
     markWidth: 13,
     markHeight: 13,
@@ -735,17 +744,16 @@ function PortalLanding({ onNavigate }: { onNavigate: (route: InternalRoute) => v
                       isSelected ? 'is-active' : ''
                     }`}
                   />
-                  {destination.logo ? (
+                  {destination.logoDark && destination.logoLight ? (
                     <image
                       aria-hidden="true"
                       className="portal-ring-native-mark"
-                      href={destination.logo}
+                      href={isSelected ? destination.logoDark : destination.logoLight}
                       x={iconPoint.x - destination.markWidth / 2}
                       y={iconPoint.y - destination.markHeight / 2}
                       width={destination.markWidth}
                       height={destination.markHeight}
                       preserveAspectRatio="xMidYMid meet"
-                      style={{ filter: isSelected ? 'brightness(0)' : 'brightness(0) invert(1)' }}
                     />
                   ) : (
                     <PhoneSvgMark
