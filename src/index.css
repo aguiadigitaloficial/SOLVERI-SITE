@@ -59,7 +59,19 @@ html {
 }
 
 .portal-radar {
-  width: min(100%, clamp(310px, calc(100svh - 280px), 760px));
+  width: min(100%, clamp(320px, 72vw, 560px));
+}
+
+@media (max-width: 640px) {
+  .portal-radar {
+    width: min(100%, 360px);
+  }
+}
+
+@media (min-width: 1536px) and (min-height: 860px) {
+  .portal-radar {
+    width: min(100%, 700px);
+  }
 }
 
 .portal-ring-guide {

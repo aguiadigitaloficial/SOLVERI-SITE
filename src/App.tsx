@@ -687,7 +687,7 @@ function PortalLanding({ onNavigate }: { onNavigate: (route: InternalRoute) => v
     portalDestinations.find((destination) => destination.route === selectedRoute) ?? portalDestinations[0];
 
   return (
-    <section className="portal-landing relative flex min-h-screen overflow-hidden bg-[#F9F9F7] px-4 py-8 text-[#0F2017] sm:px-8 sm:py-10">
+    <section className="portal-landing relative flex min-h-screen overflow-x-hidden bg-[#F9F9F7] px-4 py-8 text-[#0F2017] sm:px-8 sm:py-10">
       <div className="portal-grid-pattern pointer-events-none absolute inset-0" aria-hidden="true" />
       <div className="relative mx-auto flex w-full max-w-[1180px] flex-col items-center justify-center">
         <div className="portal-intro text-center">
@@ -707,7 +707,7 @@ function PortalLanding({ onNavigate }: { onNavigate: (route: InternalRoute) => v
           </p>
         </div>
 
-        <nav className="portal-radar relative mt-5 aspect-square w-full max-w-[360px] sm:mt-7 sm:max-w-[580px] lg:max-w-[760px]" aria-label="Escolha uma área da Solveri">
+        <nav className="portal-radar relative mt-5 aspect-square w-full max-w-[360px] sm:mt-5 sm:max-w-[580px] lg:max-w-[760px]" aria-label="Escolha uma área da Solveri">
           <svg
             className="absolute inset-0 h-full w-full overflow-visible"
             viewBox="0 0 100 100"
@@ -777,10 +777,10 @@ function PortalLanding({ onNavigate }: { onNavigate: (route: InternalRoute) => v
               <span className="font-heading text-[8px] font-bold uppercase tracking-[0.22em] text-[#5B8B11] sm:text-[10px]">
                 Destino selecionado
               </span>
-              <h2 className="mt-2 font-heading text-[17px] font-bold leading-tight text-[#0F2017] sm:mt-3 sm:text-[26px] lg:text-[30px]">
+              <h2 className="mt-2 font-heading text-[17px] font-bold leading-tight text-[#0F2017] sm:mt-3 sm:whitespace-nowrap sm:text-[26px] lg:text-[30px]">
                 {selectedDestination.name}
               </h2>
-              <p className="mt-2 font-body text-[9px] leading-[1.55] text-[#687169] sm:mt-3 sm:text-[13px] lg:text-[14px]">
+              <p className="mt-2 font-body text-[9px] leading-[1.55] text-[#687169] sm:mt-3 sm:min-w-[190px] sm:text-[13px] lg:text-[14px]">
                 {selectedDestination.description.map((line) => (
                   <span key={line} className="block">
                     {line}
@@ -789,7 +789,7 @@ function PortalLanding({ onNavigate }: { onNavigate: (route: InternalRoute) => v
               </p>
               <a
                 href={routePaths[selectedDestination.route]}
-                className="mt-3 inline-flex min-h-9 items-center justify-center gap-1.5 rounded-full bg-[#D4FF00] px-3 font-heading text-[8px] font-bold uppercase tracking-[0.05em] text-[#0F2017] transition hover:bg-white focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-3 focus-visible:outline-[#D4FF00] sm:mt-5 sm:min-h-11 sm:gap-2 sm:px-5 sm:text-[10px] lg:text-[11px]"
+                className="mt-3 inline-flex min-h-9 items-center justify-center gap-1.5 whitespace-nowrap rounded-full bg-[#D4FF00] px-3 font-heading text-[8px] font-bold uppercase tracking-[0.05em] text-[#0F2017] transition hover:bg-white focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-3 focus-visible:outline-[#D4FF00] sm:mt-5 sm:min-h-11 sm:gap-2 sm:px-5 sm:text-[10px] lg:text-[11px]"
               >
                 Entrar em {selectedDestination.shortLabel}
                 <ArrowRight size={14} aria-hidden="true" />
