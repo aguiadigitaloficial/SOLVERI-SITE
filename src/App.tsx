@@ -22,7 +22,7 @@ import heroConsultImage from './assets/hero consult.png';
 import academyHeroBackground from './assets/fundo hero academy.png';
 import academyHeroLogo from './assets/logo hero academy.png';
 import academyHeroCircles from './assets/circulos hero academy.png';
-import segmentHeroRiverImage from './assets/segment-hero-river-optimized.jpg';
+import segmentHeroRiverImage from './assets/segment-hero-background.png';
 import contactHeroBackground from './assets/contact-hero-background-optimized.jpg';
 import responseHeroBackground from './assets/response-hero-background-optimized.jpg';
 import alcoaClientLogo from './assets/clients/alcoa.png';
