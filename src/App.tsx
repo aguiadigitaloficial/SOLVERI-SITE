@@ -932,7 +932,7 @@ function Company() {
                   <span className="mt-2 block font-body text-[11px] leading-4 text-[#AAB2AD]">Profissionais capacitados</span>
                 </div>
                 <div className="min-w-0 rounded-[10px] border border-white/5 bg-[#232A23] px-4 py-4">
-                  <strong className="block font-heading text-[28px] font-bold leading-none text-accent-bright">10</strong>
+                  <strong className="block font-heading text-[28px] font-bold leading-none text-accent-bright">+15</strong>
                   <span className="mt-2 block font-body text-[11px] leading-4 text-[#AAB2AD]">Estados de atuação</span>
                 </div>
               </div>
