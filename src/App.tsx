@@ -55,12 +55,11 @@ import circulosHeroConsultImage from './assets/circulos hero consult.png';
 import sentadosImage from './assets/sentados.png';
 import novoCardResponseImage from './assets/novo card response.jpg';
 import novoCardAcademyImage from './assets/novo card academy.jpeg';
-import thumbnail2Image from './assets/thumbnail 2.png';
-import sombraThumbnailImage from './assets/sombra thumbnail.png';
+import solveriConsultOverviewImage from './assets/solveri-consult-overview.png';
 import sombraBotaoImage from './assets/sombra botao.png';
 import setaImage from './assets/seta.png';
 import iconeImage from './assets/icone.png';
-import playButtonImage from './assets/play-button.png';
+import solveriEcosystemOverviewImage from './assets/solveri-ecosystem-overview.png';
 import planejandoImage from './assets/planejando.png';
 import centraisAtendimentoProtocolarImage from './assets/centrais-atendimento-protocolar-optimized.jpg';
 import fluxogramaImage from './assets/fluxograma.png';
@@ -71,8 +70,7 @@ import verificadoImage from './assets/verificado.png';
 import checkImage from './assets/check.png';
 import telefoneImage from './assets/telefone.png';
 import emailImage from './assets/email.png';
-import thumbnailResponseImage from './assets/thumbnail response.png';
-import sombraThumbnailResponseImage from './assets/sombra thumbnail response.png';
+import solveriResponseOverviewImage from './assets/solveri-response-overview.png';
 import apagandoFogoImage from './assets/apagando fogo.png';
 import salaReuniaoImage from './assets/sala reuniao.png';
 import novaImagemResponseImage from './assets/nova imagem.jpeg';
@@ -107,8 +105,6 @@ import nfpaLogo from './assets/nfpa.svg';
 import iso31000Logo from './assets/iso31000.svg';
 import iso45001Logo from './assets/iso45001.svg';
 import iaemLogo from './assets/iaem.svg';
-import videoThumbnail from './assets/video-thumbnail.jpg';
-import muteButton from './assets/mute-button.png';
 import brazilMap from './data/brazilMap';
 
 type AppRoute = 'portal' | 'home' | 'consult' | 'response' | 'academy' | 'segmento' | 'contato';
@@ -608,8 +604,8 @@ const portalDestinations: PortalDestination[] = [
     description: ['Fale diretamente', 'com nossa equipe', 'sobre seu cenário'],
     markWidth: 10,
     markHeight: 10,
-    markOffsetX: -4,
-    markOffsetY: -1,
+    markOffsetX: -2,
+    markOffsetY: -7,
     angle: 126,
   },
   {
@@ -936,30 +932,15 @@ function Company() {
             </div>
 
             <div className="lg:pt-2">
-              <div className="relative aspect-[4/3] overflow-hidden rounded-[10px] border border-white/5 bg-[#121815] sm:aspect-video">
+              <div className="relative aspect-video overflow-hidden rounded-[10px] border border-white/5 bg-[#121815]">
                 <img
-                  src={videoThumbnail}
-                  alt="Equipe Solveri em treinamento operacional"
-                  className="h-full w-full object-cover grayscale contrast-90 brightness-90"
+                  src={solveriEcosystemOverviewImage}
+                  alt="Atuação integrada da Solveri em consultoria, capacitação e resposta operacional"
+                  className="h-full w-full object-contain"
                 />
-                <div className="absolute inset-0 bg-black/18" />
-                <button
-                  type="button"
-                  className="absolute left-1/2 top-1/2 flex h-12 w-12 -translate-x-1/2 -translate-y-1/2 items-center justify-center rounded-[10px] border border-accent-bright/80 bg-black/15 backdrop-blur-[2px] transition hover:bg-black/25 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-accent-bright"
-                  aria-label="Assistir vídeo institucional"
-                >
-                  <img src={playButtonImage} alt="" className="h-9 w-9" />
-                </button>
-                <button
-                  type="button"
-                  className="absolute bottom-3 right-3 flex h-10 w-10 items-center justify-center rounded-[8px] bg-black/65 backdrop-blur-[2px] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-white"
-                  aria-label="Ativar ou desativar volume"
-                >
-                  <img src={muteButton} alt="" className="h-5 w-5" />
-                </button>
               </div>
               <p className="mt-3 text-center font-body text-[12px] leading-5 text-[#AAB2AD]">
-                Conheça a Solveri em ação
+                Atuação integrada em consultoria, capacitação e resposta
               </p>
             </div>
           </div>
@@ -1325,25 +1306,17 @@ function ConsultUnitCard() {
               </div>
 
               <div className="flex flex-col justify-center lg:pr-[126px] lg:pl-[40px] lg:py-[65px]">
-                <div className="relative w-[528px] overflow-hidden rounded-[16px]">
+                <div className="relative aspect-video w-full max-w-[528px] overflow-hidden rounded-[16px] bg-[#0F1712]">
                   <img
-                    src={thumbnail2Image}
-                    alt="Equipe Solveri Consult em ambiente operacional"
-                    className="h-[297.17px] w-[528px] object-cover"
-                  />
-                  <img src={sombraThumbnailImage} alt="" aria-hidden="true" className="absolute inset-0 h-full w-full object-cover" />
-                  <div className="absolute inset-0 bg-black/12" />
-                  <img
-                    src={playButtonImage}
-                    alt=""
-                    aria-hidden="true"
-                    className="pointer-events-none absolute left-1/2 top-1/2 h-[52px] w-[52px] -translate-x-1/2 -translate-y-1/2 object-contain"
+                    src={solveriConsultOverviewImage}
+                    alt="Equipe Solveri Consult em planejamento estratégico para operações críticas"
+                    className="h-full w-full object-contain"
                   />
                 </div>
 
                 <div className="mt-3 flex items-center gap-2 text-[12px] text-[#AFB6B1]">
                   <span className="h-1.5 w-1.5 rounded-full bg-accent" />
-                  <span>Conheça a Solveri Consult em ação</span>
+                  <span>Planejamento estratégico para operações críticas</span>
                 </div>
 
                 <div className="mt-4 flex flex-wrap gap-2">
@@ -2020,30 +1993,17 @@ function ResponseActionSection() {
           </div>
 
           <div className="flex min-w-0 flex-col justify-center lg:justify-self-end">
-            <div className="relative aspect-video w-full overflow-hidden rounded-[16px] sm:rounded-[18px] lg:max-w-[528px]">
+            <div className="relative aspect-video w-full overflow-hidden rounded-[16px] bg-[#0D130F] sm:rounded-[18px] lg:max-w-[528px]">
               <img
-                src={thumbnailResponseImage}
-                alt="Thumbnail de operação em campo"
-                className="block h-full w-full object-cover"
+                src={solveriResponseOverviewImage}
+                alt="Equipe Solveri Response em prontidão operacional em campo"
+                className="block h-full w-full object-contain"
               />
-              <img
-                src={sombraThumbnailResponseImage}
-                alt=""
-                aria-hidden="true"
-                className="pointer-events-none absolute inset-0 h-full w-full object-cover"
-              />
-              <button
-                type="button"
-                aria-label="Assistir apresentação da Solveri Response"
-                className="absolute left-1/2 top-1/2 flex h-12 w-12 -translate-x-1/2 -translate-y-1/2 items-center justify-center rounded-[10px] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-[#D4FF00]"
-              >
-                <img src={playButtonImage} alt="" aria-hidden="true" className="h-[42px] w-[42px] object-contain" />
-              </button>
             </div>
 
             <div className="mt-3 flex items-start gap-2 text-[12px] leading-5 text-[#B7BCB8]">
               <span className="h-1.5 w-1.5 rounded-full bg-accent" />
-              <span>Conheça a Solveri Response em ação</span>
+              <span>Prontidão operacional em campo</span>
             </div>
 
             <div className="mt-4 flex flex-wrap gap-2">
@@ -4606,6 +4566,34 @@ function routeFromLocation(): AppRoute {
   return legacyDestination?.route ?? pathRoutes.get(pathname) ?? 'portal';
 }
 
+const homeAnchorHashes = new Set(['#inicio', '#empresa', '#servicos']);
+
+function scrollToRouteTop() {
+  const root = document.documentElement;
+  const previousScrollBehavior = root.style.scrollBehavior;
+
+  root.style.scrollBehavior = 'auto';
+  window.scrollTo({ top: 0, left: 0, behavior: 'auto' });
+
+  window.requestAnimationFrame(() => {
+    window.scrollTo({ top: 0, left: 0, behavior: 'auto' });
+    root.style.scrollBehavior = previousScrollBehavior;
+  });
+}
+
+function scrollToCurrentDestination(currentRoute: AppRoute) {
+  const homeAnchor = currentRoute === 'home' && homeAnchorHashes.has(window.location.hash) ? window.location.hash : '';
+
+  if (!homeAnchor) {
+    scrollToRouteTop();
+    return;
+  }
+
+  window.requestAnimationFrame(() => {
+    document.querySelector(homeAnchor)?.scrollIntoView({ behavior: 'smooth', block: 'start' });
+  });
+}
+
 function App() {
   const [route, setRoute] = useState<AppRoute>(routeFromLocation);
 
@@ -4628,22 +4616,6 @@ function App() {
   }, [route]);
 
   useEffect(() => {
-    const scrollToCurrentDestination = (currentRoute: AppRoute) => {
-      window.requestAnimationFrame(() => {
-        const homeAnchor =
-          currentRoute === 'home' && ['#inicio', '#empresa', '#servicos'].includes(window.location.hash)
-            ? window.location.hash
-            : '';
-
-        if (homeAnchor) {
-          document.querySelector(homeAnchor)?.scrollIntoView({ behavior: 'smooth', block: 'start' });
-          return;
-        }
-
-        window.scrollTo({ top: 0, left: 0, behavior: 'auto' });
-      });
-    };
-
     const syncLocation = () => {
       const pathname = normalizePathname(window.location.pathname);
       const legacyDestination = pathname === '/' ? legacyHashDestinations[window.location.hash] : undefined;
@@ -4689,8 +4661,7 @@ function App() {
 
       const destinationPath = normalizePathname(destination.pathname);
       const destinationRoute = pathRoutes.get(destinationPath);
-      const isHomeAnchor =
-        destinationPath === routePaths.home && ['', '#inicio', '#empresa', '#servicos'].includes(destination.hash);
+      const isHomeAnchor = destinationPath === routePaths.home && (destination.hash === '' || homeAnchorHashes.has(destination.hash));
 
       if (!destinationRoute || (!isHomeAnchor && destination.hash)) return;
 
@@ -4698,14 +4669,17 @@ function App() {
 
       const nextUrl = `${destinationPath}${destination.hash}`;
       const currentUrl = `${normalizePathname(window.location.pathname)}${window.location.hash}`;
+      const currentRoute = routeFromLocation();
+      const shouldOpenAtTop = destinationRoute !== currentRoute || !destination.hash;
 
       if (nextUrl !== currentUrl) {
         window.history.pushState({}, '', nextUrl);
       }
 
-      if (destinationRoute !== routeFromLocation() || !destination.hash) {
-        window.scrollTo({ top: 0, left: 0, behavior: 'auto' });
+      if (shouldOpenAtTop) {
+        scrollToRouteTop();
       }
+
       setRoute(destinationRoute);
       scrollToCurrentDestination(destinationRoute);
     };
@@ -4728,7 +4702,7 @@ function App() {
       window.history.pushState({}, '', destination);
     }
 
-    window.scrollTo({ top: 0, left: 0, behavior: 'auto' });
+    scrollToRouteTop();
     setRoute(section);
   };
 
