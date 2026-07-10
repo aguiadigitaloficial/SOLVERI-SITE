@@ -121,6 +121,15 @@ const routePaths: Record<AppRoute, string> = {
 };
 
 const siteUrl = 'https://solverigroup.com';
+const whatsAppNumber = '553138503510';
+const whatsAppBaseUrl = `https://wa.me/${whatsAppNumber}`;
+
+function buildWhatsAppUrl(message?: string) {
+  return message ? `${whatsAppBaseUrl}?text=${encodeURIComponent(message)}` : whatsAppBaseUrl;
+}
+
+const academyWhatsAppMessage =
+  'Olá, equipe Solveri Academy! Gostaria de falar com um especialista sobre os cursos e treinamentos.';
 
 const pathRoutes = new Map<string, AppRoute>(
   Object.entries(routePaths).map(([route, path]) => [path, route as AppRoute]),
@@ -421,6 +430,15 @@ const testimonials = [
   },
 ];
 
+function WhatsAppIcon({ className = 'h-5 w-5' }: { className?: string }) {
+  return (
+    <svg className={className} viewBox="0 0 32 32" aria-hidden="true" focusable="false" fill="currentColor">
+      <path d="M16 3C8.82 3 3 8.66 3 15.64c0 2.44.72 4.73 1.96 6.66L3.68 29l6.92-1.78A13.3 13.3 0 0 0 16 28.28c7.18 0 13-5.66 13-12.64S23.18 3 16 3Zm0 22.96c-1.84 0-3.62-.47-5.18-1.36l-.38-.22-4.1 1.05.77-3.98-.25-.4a10.02 10.02 0 0 1-1.54-5.41C5.32 9.96 10.11 5.32 16 5.32s10.68 4.64 10.68 10.32S21.89 25.96 16 25.96Z" />
+      <path d="M21.9 18.72c-.32-.16-1.88-.9-2.17-1-.29-.11-.5-.16-.71.16-.21.31-.82 1-.99 1.21-.18.21-.36.24-.67.08-.32-.16-1.33-.48-2.54-1.52-.94-.83-1.57-1.85-1.75-2.16-.18-.32-.02-.49.14-.64.14-.14.32-.36.48-.54.16-.19.21-.32.32-.53.11-.21.05-.4-.03-.56-.08-.16-.71-1.66-.97-2.28-.26-.6-.52-.52-.71-.53h-.61c-.21 0-.56.08-.85.4-.29.31-1.11 1.05-1.11 2.57 0 1.52 1.14 2.99 1.3 3.2.16.21 2.24 3.32 5.42 4.65.76.32 1.35.51 1.81.65.76.23 1.45.2 2 .12.61-.09 1.88-.75 2.15-1.47.26-.72.26-1.34.18-1.47-.08-.13-.29-.21-.61-.36Z" />
+    </svg>
+  );
+}
+
 function Header({
   activeSection,
   onNavigate,
@@ -479,13 +497,13 @@ function Header({
         </ul>
 
         <a
-          className={`hidden min-h-9 min-w-[112px] items-center justify-center rounded-full px-5 font-heading text-[11px] font-bold transition focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-3 focus-visible:outline-accent-bright lg:flex ${theme.contactButtonClassName}`}
-          href={routePaths.contato}
-          onClick={(event) => {
-            event.preventDefault();
-            onNavigate('contato');
-          }}
+          className={`hidden min-h-9 min-w-[132px] items-center justify-center gap-2 rounded-full px-5 font-heading text-[11px] font-bold transition focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-3 focus-visible:outline-accent-bright lg:flex ${theme.contactButtonClassName}`}
+          href={buildWhatsAppUrl()}
+          target="_blank"
+          rel="noreferrer"
+          aria-label="Fale conosco pelo WhatsApp"
         >
+          <WhatsAppIcon className="h-4 w-4 text-[#111714]" />
           Fale Conosco
         </a>
 
@@ -522,17 +540,6 @@ function Header({
                 {link.label}
               </a>
             ))}
-            <a
-              className={`mt-2 flex min-h-[50px] items-center justify-center rounded-button font-heading text-xs font-bold uppercase tracking-[0.52px] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-3 focus-visible:outline-accent-bright ${theme.contactButtonClassName}`}
-              href={routePaths.contato}
-              onClick={(event) => {
-                event.preventDefault();
-                onNavigate('contato');
-                setOpen(false);
-              }}
-            >
-              Fale Conosco
-            </a>
           </div>
         </div>
       )}
@@ -2571,7 +2578,9 @@ function AcademyHero() {
               Conheça os cursos
             </a>
             <a
-              href="/contato"
+              href={buildWhatsAppUrl(academyWhatsAppMessage)}
+              target="_blank"
+              rel="noreferrer"
               className="inline-flex min-h-12 w-full items-center justify-center rounded-[3px] border border-[#111714]/60 px-6 text-center font-heading text-[13px] font-bold text-[#111714] transition hover:border-[#111714] hover:bg-[#F4F5F2] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-3 focus-visible:outline-[#111714] sm:w-auto sm:min-w-[260px]"
             >
               Fale com um especialista
@@ -3028,7 +3037,9 @@ function AcademyCourseCard({
           </div>
 
           <a
-            href="/contato"
+            href={buildWhatsAppUrl(`Olá, equipe Solveri Academy! Gostaria de informações sobre o curso: ${title}.`)}
+            target="_blank"
+            rel="noreferrer"
             className="mt-8 inline-flex min-h-11 w-full items-center justify-center gap-2 rounded-[4px] border border-[#A8E63D]/30 px-5 font-heading text-[11px] font-bold uppercase tracking-[0.7px] text-white transition hover:border-[#A8E63D] hover:bg-[#A8E63D]/10 hover:text-[#A8E63D] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-[#A8E63D] sm:w-fit"
             style={{ fontFamily: 'Exo, sans-serif' }}
           >
@@ -4713,6 +4724,17 @@ function App() {
       }`}
     >
       {route !== 'portal' && <Header activeSection={route} onNavigate={handleNavigate} />}
+      {route !== 'portal' && (
+        <a
+          href={buildWhatsAppUrl()}
+          target="_blank"
+          rel="noreferrer"
+          className="fixed bottom-5 right-5 z-[60] inline-flex h-14 w-14 items-center justify-center rounded-full bg-[#D4FF00] text-[#111714] shadow-[0_14px_32px_rgba(15,32,23,0.28)] transition hover:scale-105 hover:bg-[#c8f000] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-[#0F2017] lg:hidden"
+          aria-label="Fale conosco pelo WhatsApp"
+        >
+          <WhatsAppIcon className="h-7 w-7" />
+        </a>
+      )}
       <main key={route} className="route-page-enter">
         {route === 'portal' ? (
           <PortalLanding onNavigate={handleNavigate} />
