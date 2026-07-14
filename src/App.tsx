@@ -7,7 +7,7 @@
   X,
 } from 'lucide-react';
 import { useEffect, useRef, useState } from 'react';
-import heroWomanImage from './assets/foto-mulher.jpg';
+import heroWomanImage from './assets/foto-mulher-optimized.jpg';
 import heroCirclesImage from './assets/circulos.png';
 import logoAcademy from './assets/logo-academy.jpg';
 import logoConsulty from './assets/logo-consulty.jpg';
@@ -20,12 +20,12 @@ import solveriGroupPortalLogo from './assets/solveri-group-portal.png';
 import solveriGroupPortalLogoWhite from './assets/portal-logo-group-white.png';
 import logoPreta from './assets/logo preta.png';
 import logoPretaWhite from './assets/portal-logo-consult-white.png';
-import heroConsultImage from './assets/hero consult.png';
-import academyHeroBackground from './assets/fundo hero academy.png';
+import heroConsultImage from './assets/hero-consult-optimized.jpg';
+import academyHeroBackground from './assets/fundo-hero-academy-optimized.jpg';
 import academyHeroLogo from './assets/logo hero academy.png';
 import academyHeroLogoWhite from './assets/portal-logo-academy-white.png';
 import academyHeroCircles from './assets/circulos hero academy.png';
-import segmentHeroRiverImage from './assets/segment-hero-background.png';
+import segmentHeroRiverImage from './assets/segment-hero-background-optimized.jpg';
 import contactHeroBackground from './assets/contact-hero-background-optimized.jpg';
 import responseHeroBackground from './assets/response-hero-background-optimized.jpg';
 import logoCardResponseWhite from './assets/portal-logo-response-white.png';
@@ -55,11 +55,11 @@ import circulosHeroConsultImage from './assets/circulos hero consult.png';
 import sentadosImage from './assets/sentados.png';
 import novoCardResponseImage from './assets/novo card response.jpg';
 import novoCardAcademyImage from './assets/novo card academy.jpeg';
-import solveriConsultOverviewImage from './assets/solveri-consult-overview.png';
+import solveriConsultOverviewImage from './assets/solveri-consult-overview-optimized.jpg';
 import sombraBotaoImage from './assets/sombra botao.png';
 import setaImage from './assets/seta.png';
 import iconeImage from './assets/icone.png';
-import solveriEcosystemOverviewImage from './assets/solveri-ecosystem-overview.png';
+import solveriEcosystemOverviewImage from './assets/solveri-ecosystem-overview-optimized.jpg';
 import planejandoImage from './assets/planejando.png';
 import centraisAtendimentoProtocolarImage from './assets/centrais-atendimento-protocolar-optimized.jpg';
 import fluxogramaImage from './assets/fluxograma.png';
@@ -70,7 +70,7 @@ import verificadoImage from './assets/verificado.png';
 import checkImage from './assets/check.png';
 import telefoneImage from './assets/telefone.png';
 import emailImage from './assets/email.png';
-import solveriResponseOverviewImage from './assets/solveri-response-overview.png';
+import solveriResponseOverviewImage from './assets/solveri-response-overview-optimized.jpg';
 import apagandoFogoImage from './assets/apagando fogo.png';
 import salaReuniaoImage from './assets/sala reuniao.png';
 import novaImagemResponseImage from './assets/nova imagem.jpeg';
@@ -822,9 +822,11 @@ function Hero() {
             Gestão integrada de riscos corporativos
           </div>
 
-          <h1 className="mt-7 max-w-[650px] font-heading text-[32px] font-bold leading-[1.08] text-white sm:text-[42px] lg:mt-12 lg:max-w-[760px] lg:text-[44px] xl:max-w-[780px] xl:text-[46px]">
-            <span className="lg:block lg:whitespace-nowrap">Cuidando dos maiores</span>
-            <span className="lg:block lg:whitespace-nowrap">patrimônios empresariais:</span>
+          <h1 className="mt-7 max-w-[650px] font-heading text-[30px] font-bold leading-[1.08] text-white sm:text-[42px] lg:mt-12 lg:max-w-[760px] lg:text-[44px] xl:max-w-[780px] xl:text-[46px]">
+            <span className="block lg:whitespace-nowrap">
+              Cuidando dos <span className="whitespace-nowrap">maiores patrimônios</span>
+            </span>
+            <span className="block lg:whitespace-nowrap">empresariais:</span>
             <span className="mt-1 block text-accent lg:whitespace-nowrap">Pessoas, Planeta e Reputação</span>
           </h1>
 
@@ -852,6 +854,8 @@ function Hero() {
           <img
             src={heroWomanImage}
             alt="Profissional da Solveri com uniforme de resposta a emergências e capacete"
+            fetchPriority="high"
+            decoding="async"
             className="absolute inset-0 h-full w-full object-cover object-[66%_center] sm:object-[68%_center] lg:object-center"
           />
           <div className="absolute inset-0 bg-gradient-to-t from-black/65 via-transparent to-transparent lg:bg-gradient-to-r lg:from-[#07100B] lg:via-[#07100B]/65 lg:to-transparent" />
@@ -899,7 +903,13 @@ function Units() {
                   : ''
               }`}
             >
-              <img src={unit.logo} alt={unit.alt} className="h-[97px] w-[114px] object-contain mix-blend-multiply" />
+              <img
+                src={unit.logo}
+                alt={unit.alt}
+                loading="lazy"
+                decoding="async"
+                className="h-[97px] w-[114px] object-contain mix-blend-multiply"
+              />
               <span className="mt-2 max-w-[190px] font-body text-[15px] font-normal leading-5 text-[#8F9691] lg:text-[16px]">
                 {unit.text}
               </span>
@@ -943,6 +953,8 @@ function Company() {
                 <img
                   src={solveriEcosystemOverviewImage}
                   alt="Atuação integrada da Solveri em consultoria, capacitação e resposta operacional"
+                  loading="lazy"
+                  decoding="async"
                   className="h-full w-full object-contain"
                 />
               </div>
@@ -978,6 +990,8 @@ function Company() {
                     <img
                       src={institution.logo}
                       alt={`${institution.name}, instituição da qual a Solveri é membro colaborador`}
+                      loading="lazy"
+                      decoding="async"
                       className="h-12 max-w-full object-contain brightness-0 invert opacity-90 sm:h-14"
                     />
                     <span className="mt-3 inline-flex min-h-6 items-center rounded-full border border-accent-bright/25 bg-accent-bright/10 px-3 font-heading text-[9px] font-bold uppercase tracking-[0.08em] text-accent-bright sm:text-[10px]">
@@ -1004,6 +1018,8 @@ function Company() {
                     <img
                       src={reference.logo}
                       alt={`${reference.name}, referência técnica em ${reference.description.toLowerCase()}`}
+                      loading="lazy"
+                      decoding="async"
                       className="h-12 max-w-full object-contain brightness-0 invert opacity-90 sm:h-14"
                     />
                     <span className="mt-3 font-body text-[10px] leading-4 text-[#AAB2AD] sm:text-[11px]">
@@ -1071,6 +1087,8 @@ function Clients() {
           <img
             src={client.logo}
             alt={isDuplicate ? '' : client.name}
+            loading="lazy"
+            decoding="async"
             className="max-h-[62px] max-w-[118px] object-contain sm:max-h-[70px] sm:max-w-[138px] lg:max-h-[76px] lg:max-w-[158px]"
           />
         </div>
@@ -1251,6 +1269,9 @@ function ConsultHero() {
             <img
               src={heroConsultImage}
               alt="Reunião de planejamento de emergência"
+              loading="eager"
+              fetchPriority="high"
+              decoding="async"
               className="absolute inset-0 h-full w-full object-cover object-[64%_center] sm:object-[68%_center] lg:object-right"
             />
             <div className="absolute inset-0 bg-gradient-to-t from-black/18 to-transparent lg:bg-gradient-to-r lg:from-white lg:via-white/90 lg:via-[42%] lg:to-transparent" />
@@ -1317,6 +1338,8 @@ function ConsultUnitCard() {
                   <img
                     src={solveriConsultOverviewImage}
                     alt="Equipe Solveri Consult em planejamento estratégico para operações críticas"
+                    loading="lazy"
+                    decoding="async"
                     className="h-full w-full object-contain"
                   />
                 </div>
@@ -1545,6 +1568,8 @@ function ConsultProcessCard({
           <img
             src={imageSrc}
             alt={imageAlt}
+            loading="lazy"
+            decoding="async"
             className={`block h-full w-full ${imageFit === 'contain' ? 'object-contain' : 'object-cover'}`}
             style={{ objectPosition: imagePosition }}
           />
@@ -1896,6 +1921,9 @@ function ResponseHero() {
           <img
             src={responseHeroBackground}
             alt="Profissionais com roupas de proteção química realizando descontaminação operacional"
+            loading="eager"
+            fetchPriority="high"
+            decoding="async"
             className="absolute inset-0 h-full w-full object-cover object-[72%_center] sm:object-[70%_center] lg:object-center"
           />
           <div className="absolute inset-0 bg-gradient-to-t from-black/10 to-transparent lg:bg-gradient-to-r lg:from-white/70 lg:via-white/10 lg:to-transparent" />
@@ -2004,6 +2032,8 @@ function ResponseActionSection() {
               <img
                 src={solveriResponseOverviewImage}
                 alt="Equipe Solveri Response em prontidão operacional em campo"
+                loading="lazy"
+                decoding="async"
                 className="block h-full w-full object-contain"
               />
             </div>
@@ -2216,6 +2246,8 @@ function ResponseDeliverableCard({
           <img
             src={imageSrc}
             alt={imageAlt}
+            loading="lazy"
+            decoding="async"
             className={`block h-full w-full ${imageFit === 'contain' ? 'object-contain' : 'object-cover'}`}
             style={{ objectPosition: imagePosition }}
           />
@@ -2592,6 +2624,9 @@ function AcademyHero() {
           <img
             src={academyHeroBackground}
             alt="Equipe participando de treinamento prático de resposta a emergências da Solveri Academy"
+            loading="eager"
+            fetchPriority="high"
+            decoding="async"
             className="absolute inset-0 h-full w-full object-cover object-[76%_center] sm:object-[74%_center] lg:object-center"
           />
           <div className="absolute inset-0 bg-gradient-to-t from-black/10 to-transparent lg:bg-gradient-to-r lg:from-white/70 lg:via-white/10 lg:to-transparent" />
@@ -2979,6 +3014,8 @@ function AcademyCourseCard({
           <img
             src={imageSrc}
             alt={imageAlt}
+            loading="lazy"
+            decoding="async"
             className={`block h-full w-full ${imageFit === 'contain' ? 'object-contain' : 'object-cover'}`}
             style={{ objectPosition: imagePosition }}
           />
@@ -3133,6 +3170,9 @@ function SegmentSection() {
             <img
               src={segmentHeroRiverImage}
               alt="Vista aérea de rio sinuoso cercado por floresta"
+              loading="eager"
+              fetchPriority="high"
+              decoding="async"
               className="absolute inset-0 h-full w-full object-cover object-[62%_center] sm:object-[65%_center] lg:object-right"
             />
             <div className="absolute inset-0 bg-gradient-to-t from-[#0D2418]/20 to-transparent lg:bg-gradient-to-r lg:from-[#0D2418] lg:via-[#0D2418]/90 lg:via-[42%] lg:to-transparent" />
@@ -3259,6 +3299,8 @@ function SegmentGridSection() {
               <img
                 src={card.image}
                 alt={card.title}
+                loading="lazy"
+                decoding="async"
                 className="block h-full w-full object-cover transition duration-500 ease-out group-hover:scale-[1.035]"
               />
             </div>
@@ -3358,6 +3400,9 @@ function ContactHero() {
           <img
             src={contactHeroBackground}
             alt="Profissional da Solveri diante da identidade visual da empresa"
+            loading="eager"
+            fetchPriority="high"
+            decoding="async"
             className="absolute inset-0 h-full w-full object-cover object-[68%_center] sm:object-[66%_center] lg:object-center"
           />
           <div className="absolute inset-0 bg-gradient-to-t from-[#0D2418]/20 to-transparent lg:bg-gradient-to-r lg:from-[#0D2418] lg:via-[#0D2418]/88 lg:via-[43%] lg:to-transparent" />
@@ -3842,6 +3887,8 @@ function ServiceCard({
             <img
               src={imageSrc}
               alt={imageAlt}
+              loading="lazy"
+              decoding="async"
               className={`absolute inset-0 block h-full w-full max-w-none transform-gpu transition-transform duration-500 ${
                 imageFit === 'contain' ? 'object-contain' : 'object-cover'
               } ${imageScaleClassName ?? ''}`}
@@ -3925,6 +3972,8 @@ function EsgBanner() {
           <img
             src={paisagemImage}
             alt="Paisagem natural com rio e vegetação"
+            loading="lazy"
+            decoding="async"
             className="block h-full w-full object-cover object-center"
           />
         </div>
@@ -4242,7 +4291,7 @@ function PartnerShowcase() {
         <div className="mt-10 grid w-full max-w-[520px] gap-5 lg:max-w-[760px] lg:grid-cols-2">
           {cards.map((card) => (
             <article key={card.title} className="rounded-[14px] bg-[#232A25] p-5 text-left shadow-[0_14px_30px_rgba(0,0,0,0.18)]">
-              <img src={card.logo} alt={card.title} className="h-12 w-auto object-contain opacity-90" />
+              <img src={card.logo} alt={card.title} loading="lazy" decoding="async" className="h-12 w-auto object-contain opacity-90" />
               <h3 className="mt-6 font-heading text-[16px] font-bold text-white">{card.title}</h3>
               <p className="mt-3 font-body text-[12px] leading-5 text-[#B1B7B2]">{card.description}</p>
               <a className="mt-4 inline-flex items-center gap-2 font-heading text-[11px] font-bold text-accent-bright" href="/contato">
